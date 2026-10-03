@@ -96,7 +96,7 @@ function calc(){
    if(n===3){var bmin=Math.min.apply(null,bj);if(bmin<mb0-10)mB=(sb-bmin)/2;}
    else{var rb=bj.filter(function(b){return b>=mb0-10;});if(rb.length<n){if(rb.length<3){mB=avg(bj.slice().sort(function(a,b){return b-a;}).slice(0,3));}else mB=avg(rb);}}
    var ub=mB+10*f;if(n===3)ub=Math.min(ub,25*f);B=bj.map(function(){return ub;});
-   pasos.push('Media de referencia (bajas): '+pc(mB)+'. Umbral: '+pc(10*f)+' más de baja'+(n===3?' (y en todo caso, más de '+pc(25*f)+')':'')+'.');}
+   pasos.push('Media de referencia (bajas): '+pc(mB)+'. Umbral: '+(10*f).toLocaleString('es-ES',{maximumFractionDigits:2})+' puntos más de baja'+(n===3?' (y en todo caso, más de '+pc(25*f)+' de baja)':'')+'.');}
  }
  var h='<div class="tabla-wrap"><table class="tipos"><thead><tr><th>Oferta</th><th>Importe</th>'+(bj?'<th>Baja</th>':'')+'<th>Umbral (importes)</th><th>¿Anormal?</th>'+(bj?'<th>Umbral (bajas)</th><th>¿Anormal?</th>':'')+'</tr></thead><tbody>';
  var nA=0,nB=0;
