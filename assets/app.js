@@ -9,6 +9,13 @@ document.querySelectorAll('form[data-mailto]').forEach(function(f){
     var n=f.querySelector('.form-ok');if(n)n.hidden=false;
   });
 });
+document.querySelectorAll('.dd-b').forEach(function(b){
+  b.addEventListener('click',function(ev){ev.stopPropagation();var d=b.parentNode,o=!d.classList.contains('open');
+    document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');x.querySelector('.dd-b').setAttribute('aria-expanded','false');});
+    if(o){d.classList.add('open');b.setAttribute('aria-expanded','true');}});
+});
+document.addEventListener('click',function(){document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');x.querySelector('.dd-b').setAttribute('aria-expanded','false');});});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape')document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');});});
 document.querySelectorAll('[data-deadline]').forEach(function(el){
   var ms=new Date(el.dataset.deadline)-new Date();
   if(isNaN(ms))return;
