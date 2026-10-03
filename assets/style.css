@@ -94,6 +94,7 @@ nav.main{align-items:center}
 .card.link h3{color:var(--ink);padding-right:26px}
 .g2f{grid-template-columns:repeat(2,minmax(0,1fr))}@media (max-width:700px){.g2f{grid-template-columns:1fr}}
 .card.link .more{position:absolute;right:20px;top:20px;color:var(--accent-ink);font-weight:800}
+.card.link .badge{margin-right:26px}
 .card.dashed{border-style:dashed;background:var(--soft)}
 ul.ejemplos{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px 24px}
 ul.ejemplos li{padding:12px 0;border-bottom:1px solid var(--line)}
