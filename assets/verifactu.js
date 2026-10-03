@@ -52,7 +52,7 @@
     var d = new Date(), z = -d.getTimezoneOffset(), s = z >= 0 ? "+" : "-", p = function (n) { return ("0" + Math.floor(Math.abs(n))).slice(-2); };
     return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + "T" + p(d.getHours()) + ":" + p(d.getMinutes()) + ":" + p(d.getSeconds()) + s + p(z / 60) + ":" + p(z % 60);
   }
-  // URL encoding como java.net.URLEncoder (UTF-8): también ! ' ( ) * y el espacio como «+»
+  // URL encoding en UTF-8 (también ! ' ( ) * y el espacio como «+»)
   function enc(s) { return encodeURIComponent(s).replace(/[!'()*]/g, function (c) { return "%" + c.charCodeAt(0).toString(16).toUpperCase(); }).replace(/%20/g, "+"); }
   function urlQR(o) {
     var base = (o.entorno === "pruebas" ? "https://prewww2.aeat.es" : "https://www2.agenciatributaria.gob.es") + "/wlpl/TIKE-CONT/" + (o.verificable ? "ValidarQR" : "ValidarQRNoVerifactu");
