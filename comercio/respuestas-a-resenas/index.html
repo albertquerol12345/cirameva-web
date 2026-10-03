@@ -25,11 +25,56 @@
 <section style="padding-top:36px"><div class="wrap">
 <div class="crumbs"><a href="/">Inicio</a> › <a href="/comercio/">CIRAMEVA Comercio</a> › Respuestas a las reseñas de Google de tu tienda</div>
 <div class="layout"><div class="prose">
-<h1 style="font-size:clamp(28px,4vw,40px)">Respuestas a las reseñas de Google: ejemplos gratis y servicio por 49 € al mes</h1>
+<h1 style="font-size:clamp(28px,4vw,40px)">Respuestas a las reseñas de Google: generador gratis, ejemplos y servicio por 49 € al mes</h1>
 <p class="lead">Respondemos cada reseña de tu perfil de empresa en Google en menos de 48 h, con tu tono y tus datos, y te avisamos de las que piden una llamada o una denuncia. Abajo, ejemplos gratis para cada tipo de reseña.</p>
 <h2>El problema</h2><p>Las reseñas sin respuesta, sobre todo las malas, son lo primero que lee quien busca tu tienda en Google Maps. Responderlas bien y a tiempo cada semana es trabajo que en una tienda nadie tiene tiempo de hacer.</p>
 <h2>Qué entregamos</h2><ul><li>Respuesta personalizada a cada reseña nueva en menos de 48 h, con tu tono y sin datos personales del cliente.</li><li>Aviso el mismo día de las reseñas que necesitan una llamada, una devolución o una denuncia a Google.</li><li>Informe mensual: reseñas recibidas, nota media y los tres temas que más se repiten.</li></ul>
 <h2>Plazo</h2><p>Empezamos en 24 h desde que nos das acceso de administrador a tu perfil de empresa en Google.</p>
+
+<h2 id="generador">Generador gratis de respuestas a reseñas de Google</h2>
+<p>Elige las estrellas y el motivo, pon el nombre del cliente y el de tu tienda, y copia la respuesta. Se genera en tu navegador: no se envía nada.</p>
+<div class="box" id="gr-box">
+<p><label>Nombre del cliente <input id="gr-nom" placeholder="Marta"></label> <label>Tu tienda <input id="gr-tie" placeholder="Ferretería Sol"></label> <label>Correo o teléfono de contacto <input id="gr-con" placeholder="hola@tutienda.es"></label></p>
+<p><label>Estrellas <select id="gr-est"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+<label>Motivo <select id="gr-mot"><option value="gen">General / sin texto</option><option value="pro">Le gustó el producto</option><option value="ate">Atención o trato</option><option value="pre">Precio</option><option value="esp">Espera o cola</option><option value="def">Producto defectuoso</option><option value="ped">Pedido online tarde o incompleto</option><option value="fal">No parece un cliente</option></select></label>
+<label>Idioma <select id="gr-idi"><option value="es">Español</option><option value="en">Inglés</option></select></label></p>
+<p><button type="button" class="btn primary" id="gr-go">Generar respuesta</button> <button type="button" class="btn ghost" id="gr-otra">Otra versión</button> <button type="button" class="btn ghost" id="gr-cp">Copiar</button></p>
+<p id="gr-out" aria-live="polite" style="white-space:pre-wrap"></p>
+</div>
+<script>
+(function(){
+var T={es:{
+gen5:["¡Gracias por las cinco estrellas, {n}! Nos alegra mucho que te guste {t}. Te esperamos pronto.","Gracias, {n}, por dedicarnos un momento. En {t} trabajamos para que cada visita valga la pena: ¡hasta la próxima!"],
+pro5:["Gracias, {n}. Nos encanta saber que acertaste con lo que buscabas. En {t} seguimos eligiendo cada producto con cuidado. ¡Hasta pronto!","¡Qué bien leer esto, {n}! Que el producto te haya gustado es justo lo que buscamos. Gracias por confiar en {t}."],
+ate5:["Gracias, {n}. Se lo diremos al equipo, que se alegrará mucho. En {t} te atenderemos igual de bien la próxima vez.","¡Gracias por tus palabras sobre el trato, {n}! Es lo que más cuidamos en {t}. Te esperamos."],
+mid:["Gracias por tu opinión, {n}. Nos quedamos con lo bueno y queremos saber qué nos faltó: cuéntanoslo en {c} y lo miramos.","Gracias, {n}. Nos gustaría ganarnos las cinco estrellas: si nos escribes a {c}, vemos qué podemos mejorar en {t}."],
+pre:["Gracias por tu opinión, {n}. Entendemos que el precio importa. En {t} cuidamos la calidad y la garantía de lo que vendemos, y cada semana tenemos ofertas. Esperamos verte pronto.","Gracias, {n}. Tomamos nota sobre el precio. Si nos escribes a {c}, te contamos las promociones que tenemos ahora en {t}."],
+esp:["Lo sentimos, {n}. Esperar así no es lo que queremos para nadie. Ya lo hemos hablado con el equipo para reforzar las horas punta. Si nos escribes a {c}, nos gustaría compensártelo.","Tienes razón, {n}: la espera fue demasiado larga. Estamos organizando mejor los turnos en {t}. Gracias por avisarnos; escríbenos a {c} si quieres que lo hablemos."],
+def:["Sentimos que el producto te haya llegado así, {n}. Tienes derecho a la reparación o sustitución dentro de la garantía legal. Escríbenos a {c} con tu ticket y lo resolvemos esta semana.","Lo sentimos mucho, {n}. Queremos arreglarlo cuanto antes: escríbenos a {c} con el ticket o el número de pedido y te decimos hoy mismo cómo lo cambiamos."],
+ped:["Lo sentimos, {n}. Tu pedido tenía que haberte llegado completo y a tiempo. Escríbenos a {c} con el número de pedido y te decimos hoy dónde está y cómo lo arreglamos.","Tienes toda la razón, {n}. Revisamos ya lo que pasó con tu pedido: escríbenos a {c} con el número y lo solucionamos."],
+fal:["Hola, {n}. No encontramos ninguna compra ni visita con tus datos en {t}. Si has estado con nosotros, escríbenos a {c} para entender qué pasó y ayudarte."]},
+en:{
+gen5:["Thank you for the five stars, {n}! We're so glad you like {t}. See you soon.","Thanks for taking a moment to review us, {n}. We hope to see you again at {t}!"],
+pro5:["Thank you, {n}! We're happy you found what you were looking for. See you soon at {t}.","Great to read this, {n}. Thanks for trusting {t}!"],
+ate5:["Thank you, {n}! We'll pass your words on to the team. See you next time at {t}.","Thanks for your kind words about our service, {n}. It's what we care about most at {t}."],
+mid:["Thanks for your feedback, {n}. We'd love to know what we missed: tell us at {c} and we'll look into it.","Thank you, {n}. We want to earn all five stars: write to us at {c} and we'll see what we can improve at {t}."],
+pre:["Thanks for your feedback, {n}. We understand price matters. At {t} we care about quality and warranty, and we have weekly offers. Hope to see you soon."],
+esp:["We're sorry, {n}. Nobody should wait that long. We're reorganising peak hours at {t}. Write to us at {c} if you'd like to talk."],
+def:["We're sorry the product reached you like that, {n}. Under the legal guarantee you're entitled to a repair or replacement. Write to us at {c} with your receipt and we'll fix it this week."],
+ped:["We're sorry, {n}. Your order should have arrived complete and on time. Write to us at {c} with your order number and we'll sort it out today."],
+fal:["Hello {n}. We can't find any purchase or visit under your name at {t}. If you've been with us, please write to us at {c} so we can understand what happened."]}};
+var k=0;function g(id){return document.getElementById(id)}
+function clave(){var e=+g('gr-est').value,m=g('gr-mot').value;
+if(m==='fal')return 'fal';if(m==='def')return 'def';if(m==='ped')return 'ped';if(m==='esp')return 'esp';if(m==='pre')return 'pre';
+if(e>=5)return m==='pro'?'pro5':(m==='ate'?'ate5':'gen5');return 'mid'}
+function gen(){var L=T[g('gr-idi').value][clave()],s=L[k%L.length];
+var n=g('gr-nom').value.trim()||(g('gr-idi').value==='en'?'there':'cliente'),t=g('gr-tie').value.trim()||(g('gr-idi').value==='en'?'our shop':'nuestra tienda'),c=g('gr-con').value.trim()||'[correo]';
+g('gr-out').textContent=s.replace(/{n}/g,n).replace(/{t}/g,t).replace(/{c}/g,c)}
+g('gr-go').onclick=function(){k=0;gen()};g('gr-otra').onclick=function(){k++;gen()};
+g('gr-cp').onclick=function(){var x=g('gr-out').textContent;if(x&&navigator.clipboard)navigator.clipboard.writeText(x)};
+})();
+</script>
+<p class="note">Si es una reseña de 1 o 2 estrellas, responde en menos de 48 h, sin discutir y llevando la conversación a un canal privado. Las reseñas falsas u ofensivas denúncialas desde tu perfil de empresa en Google.</p>
 
 <h2>Ejemplos de respuesta a reseñas de Google (gratis, cópialos)</h2>
 <p>Cambia lo que va entre corchetes. Responde siempre con el nombre de la persona, en menos de 48 h y sin datos personales del cliente.</p>
