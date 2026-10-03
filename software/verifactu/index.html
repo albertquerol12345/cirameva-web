@@ -145,7 +145,15 @@ huella_alta("89890001K", "12345678/G33", "01-01-2024", "F1", "12.35", "123.45", 
 <li><b>QR:</b> entre 30 × 30 y 40 × 40 mm, con al menos 2 mm en blanco alrededor (se recomiendan 6). Va al principio de la factura, con el texto «QR tributario:» encima. En VERI*FACTU lleva debajo la frase «Factura verificable en la sede electrónica de la AEAT» o «VERI*FACTU».</li>
 </ul>
 <p class="note">Fuentes: AEAT, <a href="https://www.agenciatributaria.es/static_files/AEAT_Desarrolladores/EEDD/IVA/VERI-FACTU/Veri-Factu_especificaciones_huella_hash_registros.pdf" rel="noopener" target="_blank">especificaciones de la huella o hash, v0.1.2</a> (los 3 ejemplos oficiales dan aquí el mismo resultado) y <a href="https://www.agenciatributaria.es/static_files/AEAT_Desarrolladores/EEDD/IVA/VERI-FACTU/DetalleEspecificacTecnCodigoQRfactura.pdf" rel="noopener" target="_blank">especificaciones del código QR, v0.5.0</a>; plazos en la <a href="https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/nota-informativa-ampliacion-plazo-adaptacion-facturacion.html" rel="noopener" target="_blank">nota de la AEAT sobre la ampliación del plazo</a>. Herramienta orientativa: no sustituye a las pruebas en el entorno de la AEAT. No se envía ni se guarda nada.</p>
-<div class="box" style="margin-top:20px"><b>¿Tu programa de facturación es propio o a medida?</b> Te decimos qué le falta para cumplir (registros, huella encadenada, QR, eventos, firma o envío a la AEAT) en un diagnóstico de 149 € en 72 h, o te lo dejamos hecho con el <a href="/software/modulo-verifactu/">módulo VERI*FACTU en marca blanca</a>.</div>
+<div class="box" style="margin-top:20px"><b>VERI*FACTU según cómo factures</b>
+<ul style="margin:8px 0 0">
+<li>Programa propio o a medida: <a href="#pedir">diagnóstico en 72 h por 149 €</a> o <a href="/software/modulo-verifactu/">módulo en marca blanca desde 690 €</a>.</li>
+<li>Access, Excel con macros o FileMaker: <a href="/software/verifactu-access/">módulo puente sin reescribir el programa</a>.</li>
+<li>Excel o Word sin programa: <a href="/software/verifactu-excel/">test de 3 preguntas con el criterio de la AEAT</a>.</li>
+<li>Odoo Community 16, 17 o 18: <a href="/software/verifactu-odoo/">módulo de la OCA instalado y probado</a>.</li>
+<li>Tienda WooCommerce o PrestaShop: <a href="/software/verifactu-woocommerce-prestashop/">plugin elegido, instalado y probado</a>.</li>
+<li>Dolibarr o FacturaScripts: <a href="/software/verifactu-dolibarr-facturascripts/">módulo instalado y probado</a>.</li>
+</ul></div>
 </div>
 <script src="/assets/qrcode.min.js" defer></script>
 <script src="/assets/verifactu.js" defer></script>
