@@ -75,6 +75,66 @@
 <div class="vf-btns"><button type="button" class="vf-svg">Descargar el QR en SVG</button><button type="button" class="vf-copiar">Copiar la URL</button></div>
 <div class="vf-qr-out" aria-live="polite"></div>
 </div>
+<h2 id="xml">Ejemplo de XML de un registro de alta, validado contra el XSD</h2>
+<p>Este es el primer registro del ejemplo 1 de la AEAT con un desglose de IVA al 21 %. La huella del XML es la de la calculadora (3C46…2F60) y el documento completo (alta, alta encadenada y anulación dentro de <code>RegFactuSistemaFacturacion</code>) valida sin errores contra <code>SuministroLR.xsd</code> de la AEAT.</p>
+<code class="vf-code" style="max-height:420px;overflow:auto">&lt;sf:RegistroAlta&gt;
+  &lt;sf:IDVersion&gt;1.0&lt;/sf:IDVersion&gt;
+  &lt;sf:IDFactura&gt;
+    &lt;sf:IDEmisorFactura&gt;89890001K&lt;/sf:IDEmisorFactura&gt;
+    &lt;sf:NumSerieFactura&gt;12345678/G33&lt;/sf:NumSerieFactura&gt;
+    &lt;sf:FechaExpedicionFactura&gt;01-01-2024&lt;/sf:FechaExpedicionFactura&gt;
+  &lt;/sf:IDFactura&gt;
+  &lt;sf:NombreRazonEmisor&gt;EMISOR EJEMPLO SL&lt;/sf:NombreRazonEmisor&gt;
+  &lt;sf:TipoFactura&gt;F1&lt;/sf:TipoFactura&gt;
+  &lt;sf:DescripcionOperacion&gt;Servicios de ejemplo&lt;/sf:DescripcionOperacion&gt;
+  &lt;sf:Destinatarios&gt;
+    &lt;sf:IDDestinatario&gt;
+      &lt;sf:NombreRazon&gt;CLIENTE EJEMPLO SL&lt;/sf:NombreRazon&gt;
+      &lt;sf:NIF&gt;B12345674&lt;/sf:NIF&gt;
+    &lt;/sf:IDDestinatario&gt;
+  &lt;/sf:Destinatarios&gt;
+  &lt;sf:Desglose&gt;
+    &lt;sf:DetalleDesglose&gt;
+      &lt;sf:Impuesto&gt;01&lt;/sf:Impuesto&gt;
+      &lt;sf:ClaveRegimen&gt;01&lt;/sf:ClaveRegimen&gt;
+      &lt;sf:CalificacionOperacion&gt;S1&lt;/sf:CalificacionOperacion&gt;
+      &lt;sf:TipoImpositivo&gt;21.00&lt;/sf:TipoImpositivo&gt;
+      &lt;sf:BaseImponibleOimporteNoSujeto&gt;111.10&lt;/sf:BaseImponibleOimporteNoSujeto&gt;
+      &lt;sf:CuotaRepercutida&gt;12.35&lt;/sf:CuotaRepercutida&gt;
+    &lt;/sf:DetalleDesglose&gt;
+  &lt;/sf:Desglose&gt;
+  &lt;sf:CuotaTotal&gt;12.35&lt;/sf:CuotaTotal&gt;
+  &lt;sf:ImporteTotal&gt;123.45&lt;/sf:ImporteTotal&gt;
+  &lt;sf:Encadenamiento&gt;
+    &lt;sf:PrimerRegistro&gt;S&lt;/sf:PrimerRegistro&gt;
+  &lt;/sf:Encadenamiento&gt;
+  &lt;sf:SistemaInformatico&gt;
+    &lt;sf:NombreRazon&gt;EMPRESA DE SOFTWARE EJEMPLO SL&lt;/sf:NombreRazon&gt;
+    &lt;sf:NIF&gt;89890001K&lt;/sf:NIF&gt;
+    &lt;sf:NombreSistemaInformatico&gt;FACTURADOR&lt;/sf:NombreSistemaInformatico&gt;
+    &lt;sf:IdSistemaInformatico&gt;01&lt;/sf:IdSistemaInformatico&gt;
+    &lt;sf:Version&gt;1.0.0&lt;/sf:Version&gt;
+    &lt;sf:NumeroInstalacion&gt;1&lt;/sf:NumeroInstalacion&gt;
+    &lt;sf:TipoUsoPosibleSoloVerifactu&gt;S&lt;/sf:TipoUsoPosibleSoloVerifactu&gt;
+    &lt;sf:TipoUsoPosibleMultiOT&gt;N&lt;/sf:TipoUsoPosibleMultiOT&gt;
+    &lt;sf:IndicadorMultiplesOT&gt;N&lt;/sf:IndicadorMultiplesOT&gt;
+  &lt;/sf:SistemaInformatico&gt;
+  &lt;sf:FechaHoraHusoGenRegistro&gt;2024-01-01T19:20:30+01:00&lt;/sf:FechaHoraHusoGenRegistro&gt;
+  &lt;sf:TipoHuella&gt;01&lt;/sf:TipoHuella&gt;
+  &lt;sf:Huella&gt;3C464DAF61ACB827C65FDA19F352A4E3BDC2C640E9E9FC4CC058073F38F12F60&lt;/sf:Huella&gt;
+&lt;/sf:RegistroAlta&gt;</code>
+<p><a href="/software/verifactu/ejemplo_RegFactuSistemaFacturacion.xml" download>Descargar el XML completo de la cadena alta → alta → anulación</a></p>
+<h2 id="python">La misma huella en Python</h2>
+<code class="vf-code">import hashlib
+
+def huella_alta(emisor, num_serie, fecha, tipo, cuota, total, huella_anterior, fecha_hora_huso):
+    cadena = (f"IDEmisorFactura={emisor}&amp;NumSerieFactura={num_serie}&amp;FechaExpedicionFactura={fecha}"
+              f"&amp;TipoFactura={tipo}&amp;CuotaTotal={cuota}&amp;ImporteTotal={total}&amp;Huella={huella_anterior}"
+              f"&amp;FechaHoraHusoGenRegistro={fecha_hora_huso}")
+    return hashlib.sha256(cadena.encode("utf-8")).hexdigest().upper()
+
+huella_alta("89890001K", "12345678/G33", "01-01-2024", "F1", "12.35", "123.45", "", "2024-01-01T19:20:30+01:00")
+# '3C464DAF61ACB827C65FDA19F352A4E3BDC2C640E9E9FC4CC058073F38F12F60'</code>
 <h2>Reglas que aplica la calculadora</h2>
 <ul>
 <li><b>Orden del alta:</b> IDEmisorFactura, NumSerieFactura, FechaExpedicionFactura, TipoFactura, CuotaTotal, ImporteTotal, Huella (del registro anterior) y FechaHoraHusoGenRegistro.</li>
