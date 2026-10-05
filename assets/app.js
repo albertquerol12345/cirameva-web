@@ -12,6 +12,11 @@ if(UTM.length){
 }
 document.querySelectorAll('form[data-mailto]').forEach(function(f){
   f.addEventListener('submit',function(ev){
+    if(f.dataset.postUrl){
+      var origin=f.querySelector('[name=origen]');if(origin)origin.value=location.href;
+      var subject=f.querySelector('[name=asunto]');if(subject)subject.value=f.dataset.subject+UTM_TAG;
+      return; // POST nativo: la confirmación la da el receptor tras guardar, sin fetch ni CORS.
+    }
     ev.preventDefault();
     var lines=[];
     f.querySelectorAll('[name]').forEach(function(el){var v=(el.value||'').trim();if(v)lines.push((el.dataset.label||el.name)+': '+v);});
