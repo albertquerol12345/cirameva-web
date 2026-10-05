@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de actualización del alquiler 2026 | CIRAMEVA</title>
+<meta name="description" content="Calcula la renta actualizada en 2026 según tu contrato, cláusula, IPC, IRAV y topes legales.">
+<link rel="canonical" href="https://cirameva.com/modelos/calculadora-actualizacion-alquiler-2026/">
+
+<meta property="og:type" content="website"><meta property="og:site_name" content="CIRAMEVA">
+<meta property="og:title" content="Calculadora de actualización del alquiler 2026 | CIRAMEVA"><meta property="og:description" content="Calcula la renta actualizada en 2026 según tu contrato, cláusula, IPC, IRAV y topes legales."><meta property="og:url" content="https://cirameva.com/modelos/calculadora-actualizacion-alquiler-2026/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0a7c5c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<style>.calc{max-width:720px}.calc label{display:block;margin:16px 0;font-weight:600}.calc input,.calc select{display:block;width:100%;font:inherit;padding:12px;border:1px solid #a8b4bb;border-radius:8px;background:#fff;color:#0f1b2d;min-height:48px}.calc small{display:block;font-weight:400}.calc [hidden]{display:none}.calc-result{margin-top:24px;white-space:pre-line;font-size:1.12rem}.calc-error{color:#9a3412}.calc button{min-height:48px}.calc-result:empty{display:none}</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="/" aria-label="CIRAMEVA"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0a7c5c"/><path d="M21.6 10.6a7.6 7.6 0 1 0 0 10.8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="22.4" cy="16" r="2" fill="#fff"/></svg><span>CIRAMEVA</span></a>
+<nav class="main" aria-label="Principal"><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Divisiones <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/alimentacion/">CIRAMEVA Alimentación</a><a href="/hosteleria/">CIRAMEVA Hostelería</a><a href="/construccion/">CIRAMEVA Construcción</a><a href="/materiales/">CIRAMEVA Materiales</a><a href="/inmobiliario/">CIRAMEVA Inmobiliario</a><a href="/comercio/">CIRAMEVA Comercio</a><a href="/mayoristas/">CIRAMEVA Mayoristas</a><a href="/industria/">CIRAMEVA Industria</a><a href="/mantenedores/">CIRAMEVA Mantenimiento técnico</a><a href="/energia/">CIRAMEVA Energía</a><a href="/sanidad/">CIRAMEVA Sanidad</a><a href="/formacion/">CIRAMEVA Formación</a><a href="/despachos/">CIRAMEVA Despachos</a><a href="/finanzas/">CIRAMEVA Finanzas</a><a href="/personales/">CIRAMEVA Asociaciones y servicios personales</a><a href="/medios_ocio/">CIRAMEVA Medios y ocio</a><a href="/intereses-demora/">CIRAMEVA Cobros</a><a href="/software/">CIRAMEVA Software</a><a href="/sector-publico/">CIRAMEVA Sector Público</a><a href="/#pedir"><b>Otros sectores: pide precio</b></a></div></div><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Capacidades <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/capacidades/automatizacion-de-procesos-y-agentes-de-ia/">Automatización de procesos y agentes de IA</a><a href="/capacidades/robotica/">Robótica y automatización industrial</a><a href="/capacidades/datos-y-software/">Datos y software</a><a href="/capacidades/operaciones-y-compras/">Operaciones, compras e ingeniería</a><a href="/capacidades/"><b>Todas las capacidades</b></a></div></div><a href="/sector-publico/">Sector Público</a><a href="/quienes-somos/">Quiénes somos</a><a class="cta-mini" href="/#pedir">Pide precio</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap"><span class="eyebrow">Herramienta gratis · Vivienda</span><h1>Calculadora de actualización del alquiler 2026</h1><p class="lead">Elige la cláusula de tu contrato y comprueba qué porcentaje limita la subida de tu alquiler.</p></div></section><section><div class="wrap prose"><p>Gratis, sin registro. Los datos se calculan en tu dispositivo y no se envían ni se guardan.</p><form id="calculadora" class="calc" autocomplete="off">
+<label>Fecha del contrato (firma)<input name="contrato" type="date" min="1995-01-01" max="2026-12-31" required><small>Este cálculo presupone que firma e inicio coinciden. Si las fechas difieren, hay que revisar la anualidad y el régimen del contrato.</small></label>
+<label>Fecha de la actualización anual en 2026<input name="actualizacion" type="date" min="2026-01-01" max="2026-12-31" required><small>Se completa al introducir el contrato; puedes corregirla.</small></label>
+<label>Renta mensual actual (€)<input name="renta" type="number" min="0.01" step="0.01" inputmode="decimal" required></label>
+<label>¿Qué dice la cláusula de actualización?<select name="pacto" required><option value="" selected disabled>Elige la cláusula de tu contrato</option><option value="ipc">Se actualiza con el IPC</option><option value="igc">Se actualiza con el IGC</option><option value="other">IRAV, otro índice o porcentaje pactado</option><option value="unspecified">Permite actualizar, pero no indica cómo</option><option value="none">No hay pacto de actualización</option></select></label>
+<label id="campo-porcentaje">Porcentaje del índice o fórmula pactada (%)<input name="porcentaje" type="number" min="-100" max="100" step="0.001" inputmode="decimal"><small>IGC: introduce su tasa anual. Si la cláusula dice IRAV, introduce el IRAV también aquí.</small></label>
+<label id="campo-ipc">IPC anual aplicable (%)<input name="ipc" type="number" min="-100" max="100" step="0.001" inputmode="decimal"><small><a href="https://www.ine.es/calcula/">Consultar IPC en el INE</a>. Usa el periodo de la cláusula; para límites, el último dato publicado en la anualidad.</small></label>
+<label id="campo-irav">IRAV aplicable (%)<input name="irav" type="number" min="-100" max="100" step="0.001" inputmode="decimal"><small><a href="https://www.ine.es/dyngs/INEbase/operacion.htm?c=Estadistica_C&amp;cid=1254736177110&amp;idp=1254735976607&amp;menu=ultiDatos">Consultar IRAV y series del INE</a>. Usa el último dato ya publicado en tu anualidad, no un dato posterior.</small></label>
+<label id="campo-referencia" hidden>Solo para el 1 de octubre: ¿la renta supera el límite máximo del sistema de precios de referencia?<select name="superaReferencia"><option value="unknown">No lo he comprobado</option><option value="yes">Sí, lo supera</option><option value="no">No lo supera</option></select></label>
+<button class="btn primary" type="submit">Calcular la renta actualizada</button></form><div id="resultado" class="box calc-result" role="status" aria-live="polite" aria-atomic="true"></div><noscript>Activa JavaScript para calcular. Puedes leer las reglas y consultar las fuentes oficiales de abajo.</noscript><div class="box"><h2>¿Necesitas un contrato de alquiler a tu caso?</h2><p>Preparamos el contrato a partir de tus datos. <b>59 € IVA incluido</b>.</p><a class="btn primary" href="/vivienda/contrato-alquiler/#pedir">Pedir mi contrato: 59 €</a></div><h2>Qué índice corresponde</h2><p>La cláusula decide la fórmula. Para contratos desde el 26 de mayo de 2023, el IRAV limita el incremento; una cláusula inferior no se eleva hasta ese límite. Los anteriores conservan su régimen, salvo adaptación acordada. Para contratos desde abril de 2015 sin pacto, no hay actualización; si permiten actualizar sin fórmula, corresponde IGC (acotado a 0–2 %). Antes de abril de 2015, a falta de pacto se aplica IPC. Desde el 6 de marzo de 2019 existe además límite IPC, también en el tramo 19/12/2018–23/01/2019.</p>
+<p>Los porcentajes cambian cada mes: introduce el dato oficial aplicable a tu anualidad. No uses automáticamente el último de hoy para una actualización pasada. El resultado presupone vivienda habitual, la cláusula original, misma fecha de firma e inicio y ausencia de nuevo acuerdo. Si hubo adaptación, novación o fechas distintas, revisa el contrato. No sirve para alquiler de temporada, habitaciones, locales o contratos anteriores a 1995.</p>
+<h2>Topes durante 2026</h2><p>Del 22 de marzo al 29 de abril, sin nuevo pacto, se limita al 2 % por el Real Decreto-ley 8/2026, derogado el 30 de abril. El 1 de octubre se aplica la regla extraordinaria del Real Decreto-ley 26/2026: sin nuevo pacto, máximo 2 %; sin incremento si se supera el precio de referencia. Fue derogado el 2 de octubre. Fuera de esas fechas se calcula con la cláusula y sus límites ordinarios. El tope del 3 % de 2024 no es el tope general de 2026.</p>
+<h2>Fuentes oficiales</h2><ul>
+<li><a href="https://www.boe.es/eli/es/l/1994/11/24/29/con#a18">LAU, artículo 18 y disposición adicional undécima (BOE)</a></li>
+<li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-12203&amp;p=20230525#dt-4">Ley 12/2023, régimen transitorio original</a> y <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20526">derogación del cambio de septiembre</a></li>
+<li><a href="https://www.ine.es/dyngs/INEbase/operacion.htm?c=Estadistica_C&amp;cid=1254736177110&amp;idp=1254735976607&amp;menu=ultiDatos">IRAV y series oficiales del INE</a>; <a href="https://www.ine.es/calcula/">IPC del INE</a>; <a href="https://www.ine.es/dyngs/INEbase/operacion.htm?c=Estadistica_C&amp;cid=1254736177109&amp;menu=ultiDatos&amp;idp=1254735976607">IGC del INE</a></li>
+<li><a href="https://www.boe.es/eli/es/l/2015/03/30/2">Ley 2/2015: IGC y cambio de 2015</a>; <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003&amp;p=20130605#a18">redacción histórica de la LAU</a></li>
+<li><a href="https://www.boe.es/eli/es/rdl/2026/03/20/8/con#a2">Tope de marzo de 2026</a> y <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-9359">su derogación</a></li>
+<li><a href="https://www.boe.es/eli/es/rdl/2026/09/29/26">Regla del 1 de octubre</a> y <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20526">derogación del 2 de octubre</a></li></ul><p class="note">Reglas verificadas el 5 de octubre de 2026. Resultado orientativo sujeto a los datos y condiciones indicadas.</p><p><a href="/modelos/">Todos los modelos y herramientas de vivienda</a></p></div></section><script>/* T116. Funciones puras: se incrustan en HTML y se prueban con Node, sin dependencias. */
+'use strict';
+const Vivienda = (() => {
+  const DAY = 86400000;
+  function date(s) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s || '')) throw Error('Introduce una fecha válida.');
+    const d = new Date(s + 'T00:00:00Z');
+    if (!Number.isFinite(+d) || d.toISOString().slice(0,10) !== s) throw Error('Introduce una fecha válida.');
+    return d;
+  }
+  const iso = d => d.toISOString().slice(0,10);
+  function money(n) { if (n === '' || n == null || !Number.isFinite(Number(n)) || Number(n)<0) throw Error('Introduce un importe válido, mayor o igual a cero.'); return Number(n); }
+  function rate(n) { if (n === '' || n == null || !Number.isFinite(Number(n)) || Math.abs(Number(n))>100) throw Error('Introduce el porcentaje publicado por el INE, entre −100 y 100.'); return Number(n); }
+  const round = n => Math.round((n + Number.EPSILON)*100)/100;
+  function month(d) { const last = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth()+2, 0)).getUTCDate(); return new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1, Math.min(d.getUTCDate(),last))); }
+  function fianza({llaves, importe, deducciones, hasta}) {
+    const a=date(llaves), b=date(hasta), due=month(a), principal=money(importe)-money(deducciones);
+    if (b<a) throw Error('La fecha de cálculo no puede preceder a la entrega de llaves.');
+    if (a.getUTCFullYear()<2016 || b.getUTCFullYear()>2026) throw Error('Esta versión calcula periodos de 2016 a 2026.');
+    if (principal<0) throw Error('Las deducciones no pueden superar la fianza.');
+    const dias=Math.max(0,Math.round((b-due)/DAY));
+    let intereses=0, tramos=[];
+    // Se excluye el día de vencimiento y se incluye el día de cálculo. Año civil real.
+    let start=new Date(+due+DAY);
+    while (start<=b) {
+      const year=start.getUTCFullYear(), end=new Date(Math.min(+b,Date.UTC(year,11,31))), days=Math.round((end-start)/DAY)+1;
+      const annualDays=(Date.UTC(year+1,0,1)-Date.UTC(year,0,1))/DAY, tipo=year>=2023?3.25:3;
+      const subtotal=principal*tipo/100*days/annualDays;
+      intereses+=subtotal; tramos.push({year,days,tipo,annualDays,subtotal}); start=new Date(+end+DAY);
+    }
+    return {vencimiento:iso(due),dias,principal:round(principal),intereses:round(intereses),total:round(principal+intereses),tramos};
+  }
+  function alquiler({contrato, actualizacion, renta, pacto, porcentaje, ipc, irav, nuevoPacto=false, superaReferencia='unknown'}) {
+    const c=date(contrato), a=date(actualizacion), base=money(renta);
+    if(base<=0) throw Error('La renta debe ser mayor que cero.');
+    if(c<date('1995-01-01')) throw Error('Los contratos anteriores a 1995 requieren revisar su régimen especial.');
+    if(a.getUTCFullYear()!==2026) throw Error('Elige una anualidad de 2026.');
+    const anniversary=new Date(Date.UTC(2026,c.getUTCMonth(),Math.min(c.getUTCDate(),new Date(Date.UTC(2026,c.getUTCMonth()+1,0)).getUTCDate())));
+    if(a<c || a.getUTCFullYear()<=c.getUTCFullYear() || +a!==+anniversary) throw Error('La actualización debe coincidir con una anualidad del contrato. Si la vigencia empezó otro día, usa esa fecha.');
+    if(!['none','ipc','igc','unspecified','other'].includes(pacto)) throw Error('Selecciona la cláusula de actualización.');
+    if(nuevoPacto) throw Error('Un nuevo acuerdo de actualización requiere revisar su texto y los límites aplicables. Este cálculo aplica la cláusula original sin nuevo acuerdo.');
+    const old=c<date('2015-04-01'), nuevo=c>=date('2023-05-26'), oct=actualizacion==='2026-10-01';
+    let indice=pacto, notas=[];
+    if(pacto==='none') {
+      if(old) {indice='ipc';notas.push('Sin cláusula: el régimen anterior a abril de 2015 remite al IPC.');}
+      else return {indice:'Sin actualización pactada',porcentaje:0,renta:round(base),diferencia:0,notas:['Sin pacto de actualización, la renta no aumenta.']};
+    }
+    if(pacto==='unspecified') indice=old?'ipc':'igc';
+    let pct=indice==='ipc'?rate(ipc):rate(porcentaje);
+    if(indice==='igc') {pct=Math.max(0,Math.min(2,pct));notas.push('El IGC se acota entre 0 % y 2 %.');}
+    const ipcCap=c>=date('2019-03-06') || (c>=date('2018-12-19') && c<date('2019-01-24'));
+    if(ipcCap || oct) {pct=Math.min(pct,rate(ipc));notas.push('Límite del IPC aplicado al incremento.');}
+    if(nuevo || oct) {pct=Math.min(pct,rate(irav));notas.push('IRAV como límite: una cláusula inferior se conserva.');}
+    if(actualizacion>='2026-03-22' && actualizacion<'2026-04-30') {pct=Math.min(pct,2);notas.push('Límite extraordinario del 2 % durante la vigencia del Real Decreto-ley 8/2026, sin nuevo pacto.');}
+    if(oct) {
+      if(!['yes','no'].includes(superaReferencia)) throw Error('Para el 1 de octubre comprueba si la renta supera el límite del sistema de precios de referencia.');
+      pct=Math.min(pct,superaReferencia==='yes'?0:2);notas.push('Regla excepcional del 1 de octubre de 2026; derogada el día 2.');
+    }
+    const actual=round(base*(1+pct/100));
+    return {indice:({ipc:'IPC',igc:'IGC',other:'Índice o porcentaje pactado'})[indice]+((nuevo||oct)?' con límite IRAV':''),porcentaje:pct,renta:actual,diferencia:round(actual-base),notas};
+  }
+  return {fianza,alquiler};
+})();
+if(typeof module!=='undefined') module.exports=Vivienda;
+
+const form=document.getElementById('calculadora'), result=document.getElementById('resultado');
+const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);
+const fecha=s=>s.split('-').reverse().join('/');
+const get=k=>form.elements.namedItem(k).value;
+form.addEventListener('input',()=>{result.textContent='';result.classList.remove('calc-error');});
+
+const fields=['porcentaje','ipc','irav'];
+function visibility(){
+ const c=get('contrato'), p=get('pacto'), oct=get('actualizacion')==='2026-10-01', old=c&&c<'2015-04-01', none=p==='none'&&!old;
+ const effective=p==='none'&&old?'ipc':p==='unspecified'?(old?'ipc':'igc'):p;
+ const cap=c>='2019-03-06'||(c>='2018-12-19'&&c<'2019-01-24')||oct;
+ const need={porcentaje:!none&&effective!=='ipc',ipc:!none&&(effective==='ipc'||cap),irav:!none&&(c>='2023-05-26'||oct)};
+ fields.forEach(k=>{document.getElementById('campo-'+k).hidden=!need[k];form.elements[k].required=need[k];});
+ document.getElementById('campo-referencia').hidden=!oct;
+}
+form.elements.contrato.addEventListener('change',()=>{const c=get('contrato');if(c){const d=new Date(c+'T00:00:00Z'), day=Math.min(d.getUTCDate(),new Date(Date.UTC(2026,d.getUTCMonth()+1,0)).getUTCDate());form.elements.actualizacion.value='2026-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');}visibility();});
+form.addEventListener('change',visibility);visibility();
+form.addEventListener('submit',e=>{e.preventDefault();try{
+ const input={};['contrato','actualizacion','renta','pacto','porcentaje','ipc','irav','superaReferencia'].forEach(k=>input[k]=get(k));
+ const r=Vivienda.alquiler(input);result.classList.remove('calc-error');
+ result.textContent='Regla: '+r.indice+'\nVariación aplicada: '+r.porcentaje.toLocaleString('es-ES',{maximumFractionDigits:3})+' %\nNueva renta mensual: '+euro(r.renta)+'\nDiferencia mensual: '+euro(r.diferencia)+'\n'+r.notas.join('\n')+'\nLa renta actualizada se exige desde el mes siguiente a la notificación escrita, con el porcentaje aplicado.';
+}catch(err){result.classList.add('calc-error');result.textContent=err.message;}});
+</script>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 CIRAMEVA · <a href="mailto:hola@cirameva.es">hola@cirameva.es</a><br>Servicios para empresas y particulares. Precios sin IVA salvo que se indique.<br><span class="langs"><a href="/" hreflang="es" aria-current=true>Castellano</a> · <a href="/en/" hreflang="en">English</a> · <a href="/ca/" hreflang="ca">Català</a></span></div>
+<nav aria-label="Legal"><a href="/como-trabajamos/">Cómo trabajamos</a><a href="/quienes-somos/">Quiénes somos</a><a href="/licitaciones/">Licitaciones abiertas</a><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/condiciones/">Condiciones</a></nav>
+</div></footer>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

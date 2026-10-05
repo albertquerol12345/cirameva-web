@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de devolución de la fianza | CIRAMEVA</title>
+<meta name="description" content="Calcula el saldo de tu fianza, el mes desde las llaves y los intereses legales de 2026.">
+<link rel="canonical" href="https://cirameva.com/modelos/calculadora-devolucion-fianza/">
+
+<meta property="og:type" content="website"><meta property="og:site_name" content="CIRAMEVA">
+<meta property="og:title" content="Calculadora de devolución de la fianza | CIRAMEVA"><meta property="og:description" content="Calcula el saldo de tu fianza, el mes desde las llaves y los intereses legales de 2026."><meta property="og:url" content="https://cirameva.com/modelos/calculadora-devolucion-fianza/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0a7c5c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<style>.calc{max-width:720px}.calc label{display:block;margin:16px 0;font-weight:600}.calc input,.calc select{display:block;width:100%;font:inherit;padding:12px;border:1px solid #a8b4bb;border-radius:8px;background:#fff;color:#0f1b2d;min-height:48px}.calc small{display:block;font-weight:400}.calc [hidden]{display:none}.calc-result{margin-top:24px;white-space:pre-line;font-size:1.12rem}.calc-error{color:#9a3412}.calc button{min-height:48px}.calc-result:empty{display:none}</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="/" aria-label="CIRAMEVA"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0a7c5c"/><path d="M21.6 10.6a7.6 7.6 0 1 0 0 10.8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="22.4" cy="16" r="2" fill="#fff"/></svg><span>CIRAMEVA</span></a>
+<nav class="main" aria-label="Principal"><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Divisiones <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/alimentacion/">CIRAMEVA Alimentación</a><a href="/hosteleria/">CIRAMEVA Hostelería</a><a href="/construccion/">CIRAMEVA Construcción</a><a href="/materiales/">CIRAMEVA Materiales</a><a href="/inmobiliario/">CIRAMEVA Inmobiliario</a><a href="/comercio/">CIRAMEVA Comercio</a><a href="/mayoristas/">CIRAMEVA Mayoristas</a><a href="/industria/">CIRAMEVA Industria</a><a href="/mantenedores/">CIRAMEVA Mantenimiento técnico</a><a href="/energia/">CIRAMEVA Energía</a><a href="/sanidad/">CIRAMEVA Sanidad</a><a href="/formacion/">CIRAMEVA Formación</a><a href="/despachos/">CIRAMEVA Despachos</a><a href="/finanzas/">CIRAMEVA Finanzas</a><a href="/personales/">CIRAMEVA Asociaciones y servicios personales</a><a href="/medios_ocio/">CIRAMEVA Medios y ocio</a><a href="/intereses-demora/">CIRAMEVA Cobros</a><a href="/software/">CIRAMEVA Software</a><a href="/sector-publico/">CIRAMEVA Sector Público</a><a href="/#pedir"><b>Otros sectores: pide precio</b></a></div></div><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Capacidades <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/capacidades/automatizacion-de-procesos-y-agentes-de-ia/">Automatización de procesos y agentes de IA</a><a href="/capacidades/robotica/">Robótica y automatización industrial</a><a href="/capacidades/datos-y-software/">Datos y software</a><a href="/capacidades/operaciones-y-compras/">Operaciones, compras e ingeniería</a><a href="/capacidades/"><b>Todas las capacidades</b></a></div></div><a href="/sector-publico/">Sector Público</a><a href="/quienes-somos/">Quiénes somos</a><a class="cta-mini" href="/#pedir">Pide precio</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap"><span class="eyebrow">Herramienta gratis · Vivienda</span><h1>Calculadora de devolución de la fianza</h1><p class="lead">Comprueba cuándo se cumple el mes desde la entrega de llaves y cuánto suma el saldo pendiente con intereses.</p></div></section><section><div class="wrap prose"><p>Gratis, sin registro. Los datos se calculan en tu dispositivo y no se envían ni se guardan.</p><form id="calculadora" class="calc" autocomplete="off">
+<label>Fecha de entrega de llaves<input name="llaves" type="date" min="2016-01-01" max="2026-12-31" required></label>
+<label>Fianza entregada (€)<input name="importe" type="number" min="0" step="0.01" inputmode="decimal" required></label>
+<label>Deducciones que aceptas (€)<input name="deducciones" type="number" min="0" step="0.01" inputmode="decimal" value="0" required><small>Solo importes justificados. Si discutes una deducción, no la incluyas aquí.</small></label>
+<label>Calcular a fecha de<input name="hasta" type="date" min="2016-01-01" max="2026-12-31" required></label>
+<button class="btn primary" type="submit">Calcular mi devolución</button></form><div id="resultado" class="box calc-result" role="status" aria-live="polite" aria-atomic="true"></div><noscript>Activa JavaScript para calcular. Puedes leer las reglas y consultar las fuentes oficiales de abajo.</noscript><div class="box"><h2>¿Necesitas reclamar la fianza?</h2><p>Preparamos tu requerimiento y lo enviamos por burofax. <b>49 € IVA incluido</b>.</p><a class="btn primary" href="/vivienda/burofax/#pedir">Pedir mi burofax: 49 €</a></div><h2>Cómo se calcula</h2><p>El artículo 36.4 de la LAU activa intereses sobre el saldo sin devolver cuando pasa un mes desde la entrega de llaves. Es un mes de calendario, no 30 días; si falta el día equivalente, usamos el último del mes. El saldo se calcula como fianza menos deducciones aceptadas. El mes marca el inicio de los intereses, no legitima cualquier retención.</p>
+<p>Interés simple, sin capitalización: saldo × tipo anual × días / días del año. Excluimos el vencimiento e incluimos el día de cálculo, separando años bisiestos. Estimación para saldo íntegramente pendiente, sin devoluciones parciales. El <a href="https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/relacionados/tiposinteres/guia-textual/tiposinteresrefe/Tabla_tipos_de_interes_legal.html">Banco de España</a> fija en su tabla el <b>3,25 % para 2026</b> (también 2023–2025); 2016–2022: 3 %.</p>
+<h2>Fuentes oficiales</h2><ul><li><a href="https://www.boe.es/eli/es/l/1994/11/24/29/con#a36">LAU, artículo 36.4 (BOE)</a></li><li><a href="https://www.boe.es/eli/es/rd/1889/07/24/(1)/con#a5">Código Civil, artículo 5: cómputo de meses</a></li><li><a href="https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/relacionados/tiposinteres/guia-textual/tiposinteresrefe/Tabla_tipos_de_interes_legal.html">Interés legal por años (Banco de España)</a></li></ul><p class="note">Reglas verificadas el 5 de octubre de 2026. Resultado orientativo sujeto a los datos y condiciones indicadas.</p><p><a href="/modelos/">Todos los modelos y herramientas de vivienda</a></p></div></section><script>/* T116. Funciones puras: se incrustan en HTML y se prueban con Node, sin dependencias. */
+'use strict';
+const Vivienda = (() => {
+  const DAY = 86400000;
+  function date(s) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s || '')) throw Error('Introduce una fecha válida.');
+    const d = new Date(s + 'T00:00:00Z');
+    if (!Number.isFinite(+d) || d.toISOString().slice(0,10) !== s) throw Error('Introduce una fecha válida.');
+    return d;
+  }
+  const iso = d => d.toISOString().slice(0,10);
+  function money(n) { if (n === '' || n == null || !Number.isFinite(Number(n)) || Number(n)<0) throw Error('Introduce un importe válido, mayor o igual a cero.'); return Number(n); }
+  function rate(n) { if (n === '' || n == null || !Number.isFinite(Number(n)) || Math.abs(Number(n))>100) throw Error('Introduce el porcentaje publicado por el INE, entre −100 y 100.'); return Number(n); }
+  const round = n => Math.round((n + Number.EPSILON)*100)/100;
+  function month(d) { const last = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth()+2, 0)).getUTCDate(); return new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1, Math.min(d.getUTCDate(),last))); }
+  function fianza({llaves, importe, deducciones, hasta}) {
+    const a=date(llaves), b=date(hasta), due=month(a), principal=money(importe)-money(deducciones);
+    if (b<a) throw Error('La fecha de cálculo no puede preceder a la entrega de llaves.');
+    if (a.getUTCFullYear()<2016 || b.getUTCFullYear()>2026) throw Error('Esta versión calcula periodos de 2016 a 2026.');
+    if (principal<0) throw Error('Las deducciones no pueden superar la fianza.');
+    const dias=Math.max(0,Math.round((b-due)/DAY));
+    let intereses=0, tramos=[];
+    // Se excluye el día de vencimiento y se incluye el día de cálculo. Año civil real.
+    let start=new Date(+due+DAY);
+    while (start<=b) {
+      const year=start.getUTCFullYear(), end=new Date(Math.min(+b,Date.UTC(year,11,31))), days=Math.round((end-start)/DAY)+1;
+      const annualDays=(Date.UTC(year+1,0,1)-Date.UTC(year,0,1))/DAY, tipo=year>=2023?3.25:3;
+      const subtotal=principal*tipo/100*days/annualDays;
+      intereses+=subtotal; tramos.push({year,days,tipo,annualDays,subtotal}); start=new Date(+end+DAY);
+    }
+    return {vencimiento:iso(due),dias,principal:round(principal),intereses:round(intereses),total:round(principal+intereses),tramos};
+  }
+  function alquiler({contrato, actualizacion, renta, pacto, porcentaje, ipc, irav, nuevoPacto=false, superaReferencia='unknown'}) {
+    const c=date(contrato), a=date(actualizacion), base=money(renta);
+    if(base<=0) throw Error('La renta debe ser mayor que cero.');
+    if(c<date('1995-01-01')) throw Error('Los contratos anteriores a 1995 requieren revisar su régimen especial.');
+    if(a.getUTCFullYear()!==2026) throw Error('Elige una anualidad de 2026.');
+    const anniversary=new Date(Date.UTC(2026,c.getUTCMonth(),Math.min(c.getUTCDate(),new Date(Date.UTC(2026,c.getUTCMonth()+1,0)).getUTCDate())));
+    if(a<c || a.getUTCFullYear()<=c.getUTCFullYear() || +a!==+anniversary) throw Error('La actualización debe coincidir con una anualidad del contrato. Si la vigencia empezó otro día, usa esa fecha.');
+    if(!['none','ipc','igc','unspecified','other'].includes(pacto)) throw Error('Selecciona la cláusula de actualización.');
+    if(nuevoPacto) throw Error('Un nuevo acuerdo de actualización requiere revisar su texto y los límites aplicables. Este cálculo aplica la cláusula original sin nuevo acuerdo.');
+    const old=c<date('2015-04-01'), nuevo=c>=date('2023-05-26'), oct=actualizacion==='2026-10-01';
+    let indice=pacto, notas=[];
+    if(pacto==='none') {
+      if(old) {indice='ipc';notas.push('Sin cláusula: el régimen anterior a abril de 2015 remite al IPC.');}
+      else return {indice:'Sin actualización pactada',porcentaje:0,renta:round(base),diferencia:0,notas:['Sin pacto de actualización, la renta no aumenta.']};
+    }
+    if(pacto==='unspecified') indice=old?'ipc':'igc';
+    let pct=indice==='ipc'?rate(ipc):rate(porcentaje);
+    if(indice==='igc') {pct=Math.max(0,Math.min(2,pct));notas.push('El IGC se acota entre 0 % y 2 %.');}
+    const ipcCap=c>=date('2019-03-06') || (c>=date('2018-12-19') && c<date('2019-01-24'));
+    if(ipcCap || oct) {pct=Math.min(pct,rate(ipc));notas.push('Límite del IPC aplicado al incremento.');}
+    if(nuevo || oct) {pct=Math.min(pct,rate(irav));notas.push('IRAV como límite: una cláusula inferior se conserva.');}
+    if(actualizacion>='2026-03-22' && actualizacion<'2026-04-30') {pct=Math.min(pct,2);notas.push('Límite extraordinario del 2 % durante la vigencia del Real Decreto-ley 8/2026, sin nuevo pacto.');}
+    if(oct) {
+      if(!['yes','no'].includes(superaReferencia)) throw Error('Para el 1 de octubre comprueba si la renta supera el límite del sistema de precios de referencia.');
+      pct=Math.min(pct,superaReferencia==='yes'?0:2);notas.push('Regla excepcional del 1 de octubre de 2026; derogada el día 2.');
+    }
+    const actual=round(base*(1+pct/100));
+    return {indice:({ipc:'IPC',igc:'IGC',other:'Índice o porcentaje pactado'})[indice]+((nuevo||oct)?' con límite IRAV':''),porcentaje:pct,renta:actual,diferencia:round(actual-base),notas};
+  }
+  return {fianza,alquiler};
+})();
+if(typeof module!=='undefined') module.exports=Vivienda;
+
+const form=document.getElementById('calculadora'), result=document.getElementById('resultado');
+const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);
+const fecha=s=>s.split('-').reverse().join('/');
+const get=k=>form.elements.namedItem(k).value;
+form.addEventListener('input',()=>{result.textContent='';result.classList.remove('calc-error');});
+
+form.elements.hasta.value=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+form.addEventListener('submit',e=>{e.preventDefault();try{
+ const r=Vivienda.fianza({llaves:get('llaves'),importe:get('importe'),deducciones:get('deducciones'),hasta:get('hasta')});
+ const estado=r.principal===0?'No queda saldo según las deducciones introducidas.':r.dias>0?'Han transcurrido '+r.dias+' días desde el mes de referencia. Si el saldo sigue sin devolverse, genera intereses.':'Todavía no ha transcurrido el mes que activa los intereses legales.';
+ result.classList.remove('calc-error');result.textContent='Mes cumplido: '+fecha(r.vencimiento)+'\nSaldo pendiente: '+euro(r.principal)+'\n'+estado+'\nIntereses estimados: '+euro(r.intereses)+'\nTotal: '+euro(r.total)+(r.tramos.length?'\nDetalle: '+r.tramos.map(t=>t.year+': '+t.days+' días al '+t.tipo.toString().replace('.',',')+' % / '+t.annualDays+' días').join('; '):'')+'\nSiguiente paso: pide por escrito el saldo y la justificación de descuentos. Si no responde, prepara un burofax con importe y prueba de entrega de llaves.';
+}catch(err){result.classList.add('calc-error');result.textContent=err.message;}});
+</script>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 CIRAMEVA · <a href="mailto:hola@cirameva.es">hola@cirameva.es</a><br>Servicios para empresas y particulares. Precios sin IVA salvo que se indique.<br><span class="langs"><a href="/" hreflang="es" aria-current=true>Castellano</a> · <a href="/en/" hreflang="en">English</a> · <a href="/ca/" hreflang="ca">Català</a></span></div>
+<nav aria-label="Legal"><a href="/como-trabajamos/">Cómo trabajamos</a><a href="/quienes-somos/">Quiénes somos</a><a href="/licitaciones/">Licitaciones abiertas</a><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/condiciones/">Condiciones</a></nav>
+</div></footer>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
