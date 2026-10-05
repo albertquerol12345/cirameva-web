@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de indemnización por dejar el alquiler | CIRAMEVA</title>
+<meta name="description" content="Comprueba la indemnización pactada, los seis meses mínimos y el preaviso de 30 días.">
+<link rel="canonical" href="https://cirameva.com/modelos/calculadora-indemnizacion-alquiler/">
+
+<meta property="og:type" content="website"><meta property="og:site_name" content="CIRAMEVA">
+<meta property="og:title" content="Calculadora de indemnización por dejar el alquiler | CIRAMEVA"><meta property="og:description" content="Comprueba la indemnización pactada, los seis meses mínimos y el preaviso de 30 días."><meta property="og:url" content="https://cirameva.com/modelos/calculadora-indemnizacion-alquiler/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#0a7c5c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<style>.calc{max-width:720px}.calc label{display:block;margin:16px 0;font-weight:600}.calc input,.calc select{display:block;width:100%;font:inherit;padding:12px;border:1px solid #a8b4bb;border-radius:8px;background:#fff;color:#0f1b2d;min-height:48px}.calc small{display:block;font-weight:400}.calc [hidden]{display:none}.calc-result{margin-top:24px;white-space:pre-line;font-size:1.12rem}.calc-error{color:#9a3412}.calc button{min-height:48px}.calc-result:empty{display:none}</style><style>.calc input,.calc select{box-sizing:border-box;min-width:0;max-width:100%}.calc-result{overflow-wrap:anywhere}</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="/" aria-label="CIRAMEVA"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0a7c5c"/><path d="M21.6 10.6a7.6 7.6 0 1 0 0 10.8" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"/><circle cx="22.4" cy="16" r="2" fill="#fff"/></svg><span>CIRAMEVA</span></a>
+<nav class="main" aria-label="Principal"><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Divisiones <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/alimentacion/">CIRAMEVA Alimentación</a><a href="/hosteleria/">CIRAMEVA Hostelería</a><a href="/construccion/">CIRAMEVA Construcción</a><a href="/materiales/">CIRAMEVA Materiales</a><a href="/inmobiliario/">CIRAMEVA Inmobiliario</a><a href="/comercio/">CIRAMEVA Comercio</a><a href="/mayoristas/">CIRAMEVA Mayoristas</a><a href="/industria/">CIRAMEVA Industria</a><a href="/mantenedores/">CIRAMEVA Mantenimiento técnico</a><a href="/energia/">CIRAMEVA Energía</a><a href="/sanidad/">CIRAMEVA Sanidad</a><a href="/formacion/">CIRAMEVA Formación</a><a href="/despachos/">CIRAMEVA Despachos</a><a href="/finanzas/">CIRAMEVA Finanzas</a><a href="/personales/">CIRAMEVA Asociaciones y servicios personales</a><a href="/medios_ocio/">CIRAMEVA Medios y ocio</a><a href="/intereses-demora/">CIRAMEVA Cobros</a><a href="/software/">CIRAMEVA Software</a><a href="/sector-publico/">CIRAMEVA Sector Público</a><a href="/#pedir"><b>Otros sectores: pide precio</b></a></div></div><div class="dd"><button type="button" class="dd-b" aria-expanded="false">Capacidades <span aria-hidden="true">▾</span></button><div class="dd-m"><a href="/capacidades/automatizacion-de-procesos-y-agentes-de-ia/">Automatización de procesos y agentes de IA</a><a href="/capacidades/robotica/">Robótica y automatización industrial</a><a href="/capacidades/datos-y-software/">Datos y software</a><a href="/capacidades/operaciones-y-compras/">Operaciones, compras e ingeniería</a><a href="/capacidades/"><b>Todas las capacidades</b></a></div></div><a href="/sector-publico/">Sector Público</a><a href="/quienes-somos/">Quiénes somos</a><a class="cta-mini" href="/#pedir">Pide precio</a></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap"><span class="eyebrow">Gratis · CIRAMEVA Vivienda</span><h1>Calculadora de indemnización por dejar el alquiler</h1><p class="lead">Comprueba la indemnización pactada, los seis meses mínimos y el preaviso de 30 días.</p></div></section><section><div class="wrap prose"><p>Sin registro. Tus importes se calculan en tu dispositivo y no se envían ni guardan.</p><form id="calculadora" class="calc"><label>Inicio efectivo del alquiler<input name="inicio" type="date" min="2013-06-06" required><small></small></label><label>Fecha de salida y entrega de llaves<input name="salida" type="date"  required><small></small></label><label>Fecha en que el propietario recibe el aviso<input name="aviso" type="date"  required><small></small></label><label>Renta mensual vigente (€)<input name="renta" type="number" min="0.01" step="0.01" inputmode="decimal" required><small></small></label><label>Meses del periodo contractual que quedan al salir<input name="meses" type="number" min="0" max="1200" step="0.001" inputmode="decimal" required><small>Cuenta hasta el vencimiento del periodo que realmente debes cumplir; no añadas automáticamente todas las prórrogas de 5 o 7 años. Puedes introducir fracciones de mes.</small></label><label>¿Pactaste la indemnización de una mensualidad por año pendiente?<select name="pacto" required><option value="" disabled selected>Elige según tu contrato</option><option value="si">Sí, esa cláusula</option><option value="no">No hay cláusula de indemnización</option></select></label><button class="btn primary" type="submit">Calcular mi indemnización</button></form><div id="resultado" class="box calc-result" role="status" aria-live="polite" aria-atomic="true"></div><noscript>Activa JavaScript para calcular; debajo puedes consultar las fórmulas y fuentes.</noscript><div class="box"><h2>¿Necesitas comunicar tu salida?</h2><p>Preparamos y enviamos tu burofax: <b>49 € IVA incluido</b>.</p><a class="btn primary" href="/vivienda/burofax/#pedir">Pedir mi burofax · 49 €</a></div><h2>Cuánto cuesta irse antes</h2><p>Para vivienda habitual en el régimen actual, el artículo 11 permite el desistimiento tras seis meses de alquiler con aviso recibido al menos 30 días antes. La indemnización solo existe si se pactó: renta mensual vigente × meses pendientes / 12. Una fracción de año se paga proporcionalmente. Por ejemplo, 900 € y seis meses pendientes: 900 × 6 / 12 = 450 €.</p><p>El resultado calcula solo esa cláusula. Con menos de seis meses no damos un importe automático; con menos de 30 días de aviso mostramos el incumplimiento y la compensación calculada no incluye sus posibles consecuencias. Sin cláusula, la indemnización de este artículo es 0 €, aunque pueden quedar rentas, suministros o daños. Para cláusulas distintas, salida por incumplimiento, mutuo acuerdo, contratos antiguos, habitaciones, temporada y locales hay que revisar el caso. La salida del 1 de octubre de 2026 tuvo una regla excepcional y queda fuera.</p><p>Introduce los meses del plazo pendiente realmente aplicable. Si hay días sueltos, la equivalencia mensual es una aproximación que debe concordar con el contrato y la liquidación; la calculadora no convierte automáticamente días a meses.</p><h2>Comunica la salida con prueba</h2><p><a href="/modelos/carta-preaviso-alquiler/">Modelo gratuito de carta de preaviso</a>. Conserva prueba de recepción y entrega de llaves.</p><h2>Fuentes del BOE</h2><ul><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003#a11">LAU, artículo 11: seis meses, 30 días y compensación pactada</a></li><li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-5941">Ley 4/2013 y régimen transitorio</a></li><li><a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20526">Derogación del Real Decreto-ley 26/2026 el 2 de octubre</a></li></ul><p class="note">Actualizado el 5 de octubre de 2026. Estimación según tus datos y las condiciones indicadas.</p><p><a href="/modelos/">Todos los modelos y calculadoras</a></p></div></section><script>'use strict';
+const ViviendaExtra=(()=>{
+ const coeficientes=[0.15,0.15,0.14,0.14,0.16,0.18,0.19,0.20,0.19,0.15,0.12,0.10,0.09,0.09,0.09,0.09,0.10,0.13,0.17,0.23,0.40];
+ const euro=n=>Math.round((n+Number.EPSILON)*100)/100;
+ function numero(v,min=0,max=Number.MAX_SAFE_INTEGER){if(v===''||v==null||!Number.isFinite(Number(v))||Number(v)<min||Number(v)>max)throw Error('Revisa los importes y porcentajes introducidos.');return Number(v);}
+ function fecha(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))throw Error('Introduce fechas válidas.');const d=new Date(s+'T00:00:00Z');if(!Number.isFinite(+d)||d.toISOString().slice(0,10)!==s)throw Error('Introduce fechas válidas.');return d;}
+ const iso=d=>d.toISOString().slice(0,10);
+ function sumarMeses(d,n){const m=d.getUTCMonth()+n,y=d.getUTCFullYear();const ultimo=new Date(Date.UTC(y,m+1,0)).getUTCDate();return new Date(Date.UTC(y,m,Math.min(d.getUTCDate(),ultimo)));}
+ function salida(v){
+  const inicio=fecha(v.inicio),salida=fecha(v.salida),aviso=fecha(v.aviso),renta=numero(v.renta,0.01),meses=numero(v.meses,0,1200);
+  if(v.inicio<'2013-06-06')throw Error('Los contratos anteriores al 6 de junio de 2013 requieren revisar su régimen.');
+  if(v.salida==='2026-10-01')throw Error('La salida del 1 de octubre de 2026 requiere revisar la norma excepcional de ese día.');
+  if(salida<inicio||aviso>salida)throw Error('La salida debe ser posterior al inicio y al aviso.');
+  if(!['si','no'].includes(v.pacto))throw Error('Indica si existe la cláusula de indemnización.');
+  const minimo=sumarMeses(inicio,6),dias=Math.round((salida-aviso)/86400000);
+  if(salida<minimo)throw Error('Aún no han pasado seis meses: esta fórmula del artículo 11 no determina el coste de salir antes. Primera fecha: '+iso(minimo)+'.');
+  return {indemnizacion:euro(v.pacto==='si'?renta*meses/12:0),dias,preaviso:dias>=30,fechaMinima:iso(minimo),fechaAviso:iso(new Date(+salida-30*86400000)),meses};
+ }
+ function plusvalia(v){
+  const a=fecha(v.adquisicion),b=fecha(v.transmision);
+  if(b<a)throw Error('La transmisión no puede preceder a la adquisición.');
+  if(v.transmision<'2026-01-28'||v.transmision>'2026-12-31')throw Error('Esta tabla cubre desde el 28 de enero de 2026. Para otras fechas consulta la norma vigente entonces.');
+  const suelo=numero(v.suelo,0.01),total=numero(v.total,0.01),compra=numero(v.compra),venta=numero(v.venta),tipo=numero(v.tipo,0,30);
+  if(suelo>total)throw Error('El valor catastral del suelo no puede superar el total.');
+  let meses=(b.getUTCFullYear()-a.getUTCFullYear())*12+b.getUTCMonth()-a.getUTCMonth();if(b.getUTCDate()<a.getUTCDate())meses--;
+  const anos=Math.floor(meses/12),maximo=coeficientes[Math.min(anos,20)];
+  const municipal=v.coeficiente!==''&&v.coeficiente!=null;
+  const coef=municipal?Math.min(numero(v.coeficiente,0,1),maximo):maximo;
+  const efectivo=anos===0?coef*meses/12:coef;
+  const baseObjetiva=suelo*efectivo,incremento=(venta-compra)*suelo/total,baseReal=Math.max(0,incremento);
+  const noSujeta=incremento<=0,base=noSujeta?0:Math.min(baseObjetiva,baseReal);
+  return {anos,meses,maximo,coeficiente:coef,efectivo,municipal,limitado:municipal&&Number(v.coeficiente)>maximo,baseObjetiva:euro(baseObjetiva),baseReal:euro(baseReal),objetiva:euro(baseObjetiva*tipo/100),real:euro(baseReal*tipo/100),cuota:euro(base*tipo/100),noSujeta,metodo:noSujeta?'No sujeta por ausencia de incremento':baseReal<baseObjetiva?'Real (requiere solicitud y prueba)':'Objetivo'};
+ }
+ return {salida,plusvalia,coeficientes};
+})();
+if(typeof module!=='undefined')module.exports=ViviendaExtra;
+
+const MODO="salida";
+
+(()=>{const f=document.getElementById('calculadora'),out=document.getElementById('resultado');const eur=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);f.addEventListener('input',()=>{out.textContent='';out.classList.remove('calc-error');});f.addEventListener('submit',e=>{e.preventDefault();try{const v=Object.fromEntries(new FormData(f));let text;if(MODO==='salida'){const r=ViviendaExtra.salida(v);text='Indemnización pactada: '+eur(r.indemnizacion)+'\nMeses pendientes: '+r.meses+'\nPreaviso recibido: '+r.dias+' días. '+(r.preaviso?'Cumple el mínimo de 30 días.':'No cumple los 30 días: revisa las consecuencias del preaviso insuficiente.')+'\nÚltimo día para avisar con 30 días: '+r.fechaAviso+'\nSeis meses cumplidos desde: '+r.fechaMinima+'\nNo incluye otras deudas ni compensaciones por preaviso insuficiente.';}else{const r=ViviendaExtra.plusvalia(v);text='Periodo: '+(r.anos?r.anos+' años completos':r.meses+' meses completos')+'\nCoeficiente máximo: '+r.maximo+'; aplicado: '+r.efectivo.toLocaleString('es-ES',{maximumFractionDigits:6})+'\nBase objetiva: '+eur(r.baseObjetiva)+' → cuota: '+eur(r.objetiva)+'\nBase real: '+eur(r.baseReal)+' → cuota: '+eur(r.real)+'\nResultado comparado: '+eur(r.cuota)+'\n'+r.metodo+'\n'+(r.municipal?'Calculado con el coeficiente municipal introducido.':'Estimación con el máximo estatal: consulta el coeficiente municipal para afinar.')+(r.limitado?' El coeficiente municipal supera el máximo y se ha limitado.':'')+'\nSin bonificaciones ni reducciones municipales. Aporta documentos y presenta la declaración incluso si no hubo incremento.';}out.classList.remove('calc-error');out.textContent=text;}catch(err){out.classList.add('calc-error');out.textContent=err.message;}});})();
+</script>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 CIRAMEVA · <a href="mailto:hola@cirameva.es">hola@cirameva.es</a><br>Servicios para empresas y particulares. Precios sin IVA salvo que se indique.<br><span class="langs"><a href="/" hreflang="es" aria-current=true>Castellano</a> · <a href="/en/" hreflang="en">English</a> · <a href="/ca/" hreflang="ca">Català</a></span></div>
+<nav aria-label="Legal"><a href="/como-trabajamos/">Cómo trabajamos</a><a href="/quienes-somos/">Quiénes somos</a><a href="/licitaciones/">Licitaciones abiertas</a><a href="/aviso-legal/">Aviso legal</a><a href="/privacidad/">Privacidad</a><a href="/condiciones/">Condiciones</a></nav>
+</div></footer>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
