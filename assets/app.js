@@ -28,6 +28,8 @@ document.querySelectorAll('form[data-mailto]').forEach(function(f){
     var n=f.querySelector('.form-ok');if(n)n.hidden=false;
   });
 });
+// Atribución sin cookies: los formularios POST sin data-mailto (imán de /modelos/) envían la URL real con utm y gclid.
+document.querySelectorAll('form[method=post]:not([data-mailto])').forEach(function(f){f.addEventListener('submit',function(){var o=f.querySelector('[name=origen]');if(o)o.value=location.href.slice(0,1400);});});
 document.querySelectorAll('.dd-b').forEach(function(b){
   b.addEventListener('click',function(ev){ev.stopPropagation();var d=b.parentNode,o=!d.classList.contains('open');
     document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');x.querySelector('.dd-b').setAttribute('aria-expanded','false');});
