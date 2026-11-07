@@ -24,7 +24,7 @@ a.boton{display:block;text-align:center;background:var(--verde);color:#fff;text-
 .mapa{color:inherit}.hacer{margin:.6em 0 .8em 1.2em;padding:0;line-height:1.4}
 </style></head><body>
 <h1>Encargos</h1>
-<p class="nota">Sin compromiso. Si uno no te va, no contestes: caduca solo. Precio cerrado por encargo; los gastos (billete, gasolina, compras) aparte con tique.</p>
+<p class="nota">Sin compromiso. Si uno no te va, no contestes: caduca solo. Precio cerrado por tu trabajo. Furgoneta, gasolina, billetes y compras los pone CIRAMEVA: tú solo vas y lo haces.</p>
 <div id="lista"><p class="vacio">Cargando…</p></div>
 <p class="pie" id="pie"></p>
 <script>
@@ -57,7 +57,7 @@ a.boton{display:block;text-align:center;background:var(--verde);color:#fff;text-
       var donde=r.donde?'<a class="mapa" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r.donde)+'" target="_blank" rel="noopener">📍 '+esc(r.donde)+'</a>':esc(r.zona);
       var hacer=String(r.que_hacer||'').split(/\n|;/).filter(Boolean).slice(0,3).map(function(x){return '<li>'+esc(x.trim())+'</li>'}).join('');
       return '<div class="carta"><div class="tarea">'+esc(r.tarea)+'</div><div class="meta">'+donde+(d?' · '+cuando(d):'')+'</div>'+
-        '<div class="fila"><span class="precio">'+pr+' €</span><span class="extra">≈'+esc(h)+' h · '+eh+' €/h'+(/^s/i.test(r.gastos||'')?'<br>+ gastos con tique':'')+'</span></div>'+
+        '<div class="fila"><span class="precio">'+pr+' €</span><span class="extra">≈'+esc(h)+' h · '+eh+' €/h'+(r.pone?'<br>te damos: '+esc(r.pone):'')+'</span></div>'+
         (hacer?'<ol class="hacer">'+hacer+'</ol>':'')+
         '<a class="boton" href="'+url+'" target="_blank" rel="noopener">Me lo quedo</a></div>'}).join('')+
       (mas>0?'<p class="vacio">+'+mas+' más cuando cojas alguno.</p>':'');
