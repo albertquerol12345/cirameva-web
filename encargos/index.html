@@ -21,6 +21,7 @@ h1{font-size:26px;margin-bottom:6px}
 a.boton{display:block;text-align:center;background:var(--verde);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:15px;border-radius:12px}
 .vacio{text-align:center;color:var(--suave);padding:40px 10px}
 .pie{color:var(--suave);font-size:13px;margin-top:24px;text-align:center}
+.mapa{color:inherit}.hacer{margin:.6em 0 .8em 1.2em;padding:0;line-height:1.4}
 </style></head><body>
 <h1>Encargos</h1>
 <p class="nota">Sin compromiso. Si uno no te va, no contestes: caduca solo. Precio cerrado por encargo; los gastos (billete, gasolina, compras) aparte con tique.</p>
@@ -46,15 +47,20 @@ a.boton{display:block;text-align:center;background:var(--verde);color:#fff;text-
   function pinta(rs){
     var ahora=new Date();
     var ok=rs.filter(function(r){var e=String(r.estado||'').trim().toLowerCase(),d=fecha(r.antes_de);
-      return (e==='abierto'||(prueba&&e==='ejemplo'))&&r.tarea&&(!d||d>ahora)})
+      return (e==='abierto'||(prueba&&e==='ejemplo'))&&r.tarea&&+r.precio>0&&(!d||d>ahora)})  // sin precio fijado (regla de margen) no se publica
       .sort(function(a,b){return (fecha(a.antes_de)||0)-(fecha(b.antes_de)||0)});
     if(!ok.length){lista.innerHTML='<p class="vacio">Ahora mismo no hay encargos. Gracias por mirar.</p>';return}
-    lista.innerHTML=ok.map(function(r){var d=fecha(r.antes_de),pr=Math.round(+r.precio||Math.max(20,(+r.horas_est||1)*20));
-      var txt='Me quedo «'+r.tarea+'» ('+pr+' €)';
+    var mas=ok.length-3; ok=ok.slice(0,3);  // Hick: como mucho 3 a la vista
+    lista.innerHTML=ok.map(function(r){var d=fecha(r.antes_de),pr=Math.round(+r.precio),h=+r.horas_est||1,eh=Math.round(pr/h);
+      var txt='Me quedo «'+r.tarea+'» ('+pr+' €'+(d?', '+cuando(d):'')+')';
       var url='https://wa.me/'+tel+'?text='+encodeURIComponent(txt);
-      return '<div class="carta"><div class="tarea">'+esc(r.tarea)+'</div><div class="meta">'+esc(r.zona)+(d?' · '+cuando(d):'')+'</div>'+
-        '<div class="fila"><span class="precio">'+pr+' €</span><span class="extra">≈'+esc(r.horas_est||1)+' h'+(/^s/i.test(r.gastos||'')?'<br>+ gastos':'')+'</span></div>'+
-        '<a class="boton" href="'+url+'" target="_blank" rel="noopener">Me lo quedo</a></div>'}).join('');
+      var donde=r.donde?'<a class="mapa" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r.donde)+'" target="_blank" rel="noopener">📍 '+esc(r.donde)+'</a>':esc(r.zona);
+      var hacer=String(r.que_hacer||'').split(/\n|;/).filter(Boolean).slice(0,3).map(function(x){return '<li>'+esc(x.trim())+'</li>'}).join('');
+      return '<div class="carta"><div class="tarea">'+esc(r.tarea)+'</div><div class="meta">'+donde+(d?' · '+cuando(d):'')+'</div>'+
+        '<div class="fila"><span class="precio">'+pr+' €</span><span class="extra">≈'+esc(h)+' h · '+eh+' €/h'+(/^s/i.test(r.gastos||'')?'<br>+ gastos con tique':'')+'</span></div>'+
+        (hacer?'<ol class="hacer">'+hacer+'</ol>':'')+
+        '<a class="boton" href="'+url+'" target="_blank" rel="noopener">Me lo quedo</a></div>'}).join('')+
+      (mas>0?'<p class="vacio">+'+mas+' más cuando cojas alguno.</p>':'');
     document.getElementById('pie').textContent='Actualizado '+ahora.toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});
   }
   function jsonp(hoja,cb){var n='cb'+Math.random().toString(36).slice(2);window[n]=function(r){delete window[n];cb(r)};
