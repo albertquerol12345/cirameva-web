@@ -23,7 +23,7 @@ async function trae(){if(!K)return;try{const j=await baja();if(!j)throw 0;const 
 $('L').onsubmit=async ev=>{ev.preventDefault();$('E').textContent='Comprobando…';K=await clave($('pw').value);await trae();if(D){$('L').style.display='none';$('A').style.display='block';try{sessionStorage.p=$('pw').value}catch(_){}}else{K=null;$('E').textContent='Contraseña incorrecta o sin conexión'}};
 try{if(sessionStorage.p){$('pw').value=sessionStorage.p;$('L').requestSubmit()}}catch(_){}
 function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').textContent='SIN DATOS';$('x').textContent='el panel no recibe estado';return}
- const viejo=Math.round(Date.now()/1000-D.generado),sinred=typeof ult=='number'?Math.round((Date.now()-ult)/1000):0,LIM=480;
+ const viejo=Math.round(Date.now()/1000-D.generado),sinred=typeof ult=='number'?Math.round((Date.now()-ult)/1000):0,LIM=300;
  const O=D.obreros,v=O.filter(o=>o.estado=='verde').length,r=O.filter(o=>o.estado=='rojo').length,a=O.length-v-r,P=(c)=>'<b class="'+c+'">●</b>';
  if(viejo>LIM||sinred>LIM){b.style.background='var(--r)';$('n').textContent='PANEL PARADO';$('x').textContent='sin datos nuevos hace '+Math.round(Math.max(viejo,sinred)/60)+' min: no te fíes de lo de abajo'}
  else{b.style.background=v==0?'var(--r)':(r>0||!D.alimentador)?'var(--a)':'var(--v)';$('n').textContent=v+' TRABAJAN';
@@ -37,5 +37,5 @@ function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').text
  $('d').innerHTML=O.filter(o=>o.estado!='verde').map(o=>'<div class="u '+o.estado+'">● '+e(o.proveedor)+' '+e(o.nombre||o.tipo)+' '+o.minutos+'m quieto '+o.quieto+'s'+(o.agente?'':' sin proceso')+'</div>').join('');
  $('t').innerHTML=D.tabla.map(f=>'<div>'+e(f[0])+' <b class="'+(+f[1]>=+f[2]?'verde':+f[1]>=50?'ambar':'rojo')+'">'+f[1]+'</b><s>/'+f[2]+'</s></div>').join('');
  $('c').textContent=D.salud+' · '+D.caudal}
-setInterval(trae,75000);setInterval(pinta,1000);
+setInterval(trae,61000);setInterval(pinta,1000);
 </script></body></html>
