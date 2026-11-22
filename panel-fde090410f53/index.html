@@ -1,21 +1,17 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Panel</title><meta name="robots" content="noindex,nofollow"><style>
-:root{--f:#0f1115;--t:#e8eaed;--s:#9aa0a6;--c:#1a1d24;--v:#1f9d55;--a:#d9930d;--r:#d93025;--l:#2a2e37}
-@media(prefers-color-scheme:light){:root{--f:#f6f7f9;--t:#15181d;--s:#5f6368;--c:#fff;--l:#dfe2e7}}
-*{box-sizing:border-box}body{margin:0;background:var(--f);color:var(--t);font:16px/1.35 system-ui,sans-serif;padding:16px;max-width:900px;margin:auto}
-#b{border-radius:14px;padding:18px;color:#fff;background:var(--r)}#b .n{font-size:64px;font-weight:800;line-height:1}#b .x{font-size:18px;margin-top:6px}
-.k{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.k div{background:var(--c);border:1px solid var(--l);border-radius:10px;padding:8px 12px;flex:1;min-width:92px}
-.k b{display:block;font-size:24px}.k span{color:var(--s);font-size:13px}
-h2{font-size:15px;color:var(--s);margin:18px 0 6px;font-weight:600}
-.o{display:flex;align-items:center;gap:10px;background:var(--c);border:1px solid var(--l);border-radius:10px;padding:8px 12px;margin:5px 0}
-.p{width:14px;height:14px;border-radius:50%;flex:none}.verde{background:var(--v)}.ambar{background:var(--a)}.rojo{background:var(--r)}
-.o .m{flex:1;min-width:0}.o .m div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.o small{color:var(--s)}
-.f{display:grid;grid-template-columns:1fr 64px;gap:4px 10px;align-items:center;margin:7px 0}.f .q{height:10px;border-radius:5px;background:var(--l);position:relative;grid-column:1/3}
-.f .q i{position:absolute;left:0;top:0;bottom:0;border-radius:5px;background:var(--v)}.f .q u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--t)}
-.f .z{text-align:right;font-variant-numeric:tabular-nums;color:var(--s)}#c{color:var(--s);font-size:13px;margin-top:14px;word-break:break-word}
+:root{--f:#000;--t:#e6e6e6;--s:#8a8f98;--v:#22c55e;--a:#f59e0b;--r:#ef4444;--l:#2a2e37}
+*{box-sizing:border-box;margin:0;padding:0}html{-webkit-text-size-adjust:none;text-size-adjust:none}
+body{background:var(--f);color:var(--t);font:7px/1.15 ui-monospace,Menlo,Consolas,monospace;padding:1px}
+#b{color:#000;font-weight:700;padding:1px 2px;background:var(--r)}#n,#x{display:inline}
+.g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 4px}.g>div,.u{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+h2{font-size:7px;color:var(--s);font-weight:400;border-top:1px solid var(--l)}
+.verde{color:var(--v)}.ambar{color:var(--a)}.rojo{color:var(--r)}s{text-decoration:none;color:var(--s)}
+#c{color:var(--s);white-space:normal;word-break:break-word}
+#L input,#L button{font:16px system-ui}
 </style></head><body>
-<form id="L" style="margin:30vh auto;max-width:260px;text-align:center"><input id="pw" type="password" inputmode="numeric" autofocus placeholder="Contraseña" style="font-size:22px;padding:10px;width:100%;border-radius:10px;border:1px solid var(--l);background:var(--c);color:var(--t)"><button style="margin-top:10px;font-size:18px;padding:10px 18px;border-radius:10px;border:0;background:var(--v);color:#fff;width:100%">Entrar</button><div id="E" style="color:var(--r);margin-top:8px"></div></form><div id="A" style="display:none"><div id="b"><div class="n" id="n">…</div><div class="x" id="x">cargando</div></div>
-<div class="k" id="k"></div><h2>Por proveedor y modelo · objetivo 20 trabajando</h2><div id="pv"></div><h2>Obreros ahora</h2><div id="o"></div><h2>La máquina · hoy frente a techo</h2><div id="t"></div><div id="c"></div></div>
+<form id="L" style="margin:30vh auto;max-width:260px;text-align:center"><input id="pw" type="password" inputmode="numeric" autofocus placeholder="Contraseña" style="font-size:22px;padding:10px;width:100%;border-radius:10px;border:1px solid var(--l);background:var(--c);color:var(--t)"><button style="margin-top:10px;font-size:18px;padding:10px 18px;border-radius:10px;border:0;background:var(--v);color:#fff;width:100%">Entrar</button><div id="E" style="color:var(--r);margin-top:8px"></div></form><div id="A" style="display:none"><div id="b"><span id="n">…</span> <span id="x">cargando</span></div>
+<div id="pv"></div><h2>POR TAREA</h2><div id="o" class="g"></div><div id="d"></div><h2>MÁQUINA hoy/techo</h2><div id="t" class="g"></div><div id="c"></div></div>
 <script>
 let D=null,ult=0;const $=i=>document.getElementById(i),e=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 let K=null;const U=['https://api.github.com/repos/albertquerol12345/cirameva-web/contents/estado.enc?ref=estado','https://raw.githubusercontent.com/albertquerol12345/cirameva-web/estado/estado.enc'];
@@ -26,21 +22,20 @@ async function baja(){let mejor=null;for(const [i,u] of U.entries()){try{const r
 async function trae(){if(!K)return;try{const j=await baja();if(!j)throw 0;const d=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(j.iv)},K,b64(j.ct));D=JSON.parse(new TextDecoder().decode(d));ult=Date.now()}catch(_){ }pinta()}
 $('L').onsubmit=async ev=>{ev.preventDefault();$('E').textContent='Comprobando…';K=await clave($('pw').value);await trae();if(D){$('L').style.display='none';$('A').style.display='block';try{sessionStorage.p=$('pw').value}catch(_){}}else{K=null;$('E').textContent='Contraseña incorrecta o sin conexión'}};
 try{if(sessionStorage.p){$('pw').value=sessionStorage.p;$('L').requestSubmit()}}catch(_){}
-function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').textContent='SIN DATOS';$('x').textContent='El panel no recibe estado';return}
- const viejo=Math.round(Date.now()/1000-D.generado),sinred=Math.round((Date.now()-ult)/1000);
- const v=D.obreros.filter(o=>o.estado=='verde').length,a=D.obreros.filter(o=>o.estado=='ambar').length,r=D.obreros.filter(o=>o.estado=='rojo').length;
- if(viejo>480||sinred>480){b.style.background='var(--r)';$('n').textContent='PANEL PARADO';$('x').textContent='Sin datos nuevos desde hace '+Math.round(Math.max(viejo,sinred)/60)+' min: no te fíes de lo de abajo'}
- else{b.style.background=v==0?'var(--r)':(r>0||!D.alimentador)?'var(--a)':'var(--v)';$('n').textContent=v+' trabajando';
-  $('x').textContent=(v==0?'NADIE TRABAJA · ':'')+(r?r+' parados · ':'')+(a?a+' sin moverse hace más de 90 s · ':'')+(D.alimentador?'':'ALIMENTADOR CAÍDO · ')+'dato de las '+D.hora+' (hace '+Math.round(viejo/60)+' min)'}
- $('k').innerHTML=[[v,'trabajando'],[a,'dudosos'],[r,'parados'],[D.espera,'esperan turno'],[D.cola,'en cola']].map(x=>'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
- const MOD={Gemini:'Gemini 4 Neon',Codex:'GPT-6.2 Astra'},pr={};D.obreros.forEach(o=>{(pr[o.proveedor]=pr[o.proveedor]||[]).push(o)});
- $('pv').innerHTML=['Gemini','Codex'].concat(Object.keys(pr).filter(k=>!MOD[k])).map(k=>{const L=pr[k]||[],v=L.filter(o=>o.estado=='verde').length,r=L.filter(o=>o.estado=='rojo').length,a=L.length-v-r,mx=L.reduce((m,o)=>Math.max(m,o.minutos||0),0),c=(r||!v)?'rojo':a?'ambar':'verde';
-  return '<div class="o"><span class="p '+c+'"></span><div class="m"><div><b>'+v+'</b> trabajando · <b>'+r+'</b> parados'+(a?' · '+a+' dudosos':'')+'</div><small>'+e(k)+' · '+e(MOD[k]||'modelo NV')+(L.length?' · el más antiguo lleva '+mx+' min':' · ninguno abierto')+'</small></div></div>'}).join('')+'<div class="o"><span class="p '+(v>=20?'verde':v>=10?'ambar':'rojo')+'"></span><div class="m"><b>'+v+' de 20</b> <small>· total trabajando frente al objetivo</small></div></div>';
- const g={};D.obreros.forEach(o=>{(g[o.tipo]=g[o.tipo]||[]).push(o)});
- $('o').innerHTML=Object.keys(g).sort().map(k=>{const L=g[k],v=L.filter(o=>o.estado=='verde').length,r=L.filter(o=>o.estado=='rojo').length,a=L.length-v-r,c=r?'rojo':a?'ambar':'verde';
-  const mal=L.filter(o=>o.estado!='verde'||/director|mejora|repara/.test(k)).map(o=>'<small style="display:block">'+(o.estado=='verde'?'🟢':o.estado=='ambar'?'🟠':'🔴')+' '+e(o.nombre)+' · '+o.minutos+' min · sin actividad '+o.quieto+' s'+(o.agente?'':' · sin proceso de agente')+'</small>').join('');
-  return '<div class="o"><span class="p '+c+'"></span><div class="m"><div><b>'+L.length+'</b> × '+e(k)+' <small>· '+v+' trabajando'+(a?' · '+a+' dudosos':'')+(r?' · '+r+' parados':'')+'</small></div>'+mal+'</div></div>'}).join('')||'<div class="o"><span class="p rojo"></span><div class="m">Ningún obrero abierto</div></div>';
- $('t').innerHTML=D.tabla.map(f=>'<div class="f"><div>'+e(f[0])+'</div><div class="z">'+f[1]+' / '+f[2]+'</div><div class="q"><i style="width:'+f[1]+'%"></i><u style="left:'+f[2]+'%"></u></div></div>').join('');
+function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').textContent='SIN DATOS';$('x').textContent='el panel no recibe estado';return}
+ const viejo=Math.round(Date.now()/1000-D.generado),sinred=typeof ult=='number'?Math.round((Date.now()-ult)/1000):0,LIM=480;
+ const O=D.obreros,v=O.filter(o=>o.estado=='verde').length,r=O.filter(o=>o.estado=='rojo').length,a=O.length-v-r,P=(c)=>'<b class="'+c+'">●</b>';
+ if(viejo>LIM||sinred>LIM){b.style.background='var(--r)';$('n').textContent='PANEL PARADO';$('x').textContent='sin datos nuevos hace '+Math.round(Math.max(viejo,sinred)/60)+' min: no te fíes de lo de abajo'}
+ else{b.style.background=v==0?'var(--r)':(r>0||!D.alimentador)?'var(--a)':'var(--v)';$('n').textContent=v+' TRABAJAN';
+  $('x').textContent='· '+r+' rojos · '+a+' dudosos · obj 20 · cola '+D.cola+' · espera '+D.espera+(D.alimentador?'':' · ALIMENTADOR CAÍDO')+' · '+D.hora+' (hace '+(viejo<90?viejo+' s':Math.round(viejo/60)+' min')+')'}
+ const MOD={Gemini:'Gemini 4 Neon',Codex:'GPT-6.2 Astra'},pr={};O.forEach(o=>{(pr[o.proveedor]=pr[o.proveedor]||[]).push(o)});
+ $('pv').innerHTML=['Gemini','Codex'].concat(Object.keys(pr).filter(k=>!MOD[k])).map(k=>{const L=pr[k]||[],lv=L.filter(o=>o.estado=='verde').length,lr=L.filter(o=>o.estado=='rojo').length,la=L.length-lv-lr,mx=L.reduce((m,o)=>Math.max(m,o.minutos||0),0);
+  return '<div class="u">'+P((lr||!lv)?'rojo':la?'ambar':'verde')+' '+e(k)+' <s>'+e(MOD[k]||'NV')+'</s> <b class="verde">'+lv+' verde</b> <b class="'+(lr?'rojo':'')+'">'+lr+' rojo</b>'+(la?' <b class="ambar">'+la+' dud</b>':'')+' <s>· más antiguo '+mx+' min</s></div>'}).join('');
+ const g={};O.forEach(o=>{(g[o.tipo]=g[o.tipo]||[]).push(o)});
+ $('o').innerHTML=Object.keys(g).sort().map(k=>{const L=g[k],lv=L.filter(o=>o.estado=='verde').length,lr=L.filter(o=>o.estado=='rojo').length,la=L.length-lv-lr,mx=L.reduce((m,o)=>Math.max(m,o.minutos||0),0);
+  return '<div>'+P(lr?'rojo':la?'ambar':'verde')+L.length+' '+e(k.replace('cadena · ',''))+' <s>v'+lv+' r'+lr+(la?' d'+la:'')+' '+mx+'m</s></div>'}).join('')||'<div class="rojo">● ningún obrero abierto</div>';
+ $('d').innerHTML=O.filter(o=>o.estado!='verde').map(o=>'<div class="u '+o.estado+'">● '+e(o.proveedor)+' '+e(o.nombre||o.tipo)+' '+o.minutos+'m quieto '+o.quieto+'s'+(o.agente?'':' sin proceso')+'</div>').join('');
+ $('t').innerHTML=D.tabla.map(f=>'<div>'+e(f[0])+' <b class="'+(+f[1]>=+f[2]?'verde':+f[1]>=50?'ambar':'rojo')+'">'+f[1]+'</b><s>/'+f[2]+'</s></div>').join('');
  $('c').textContent=D.salud+' · '+D.caudal}
 setInterval(trae,75000);setInterval(pinta,1000);
 </script></body></html>
