@@ -9,9 +9,13 @@ h2{font-size:7px;color:var(--s);font-weight:400;border-top:1px solid var(--l)}
 .verde{color:var(--v)}.ambar{color:var(--a)}.rojo{color:var(--r)}s{text-decoration:none;color:var(--s)}
 #c{color:var(--s);white-space:normal;word-break:break-word}
 #L input,#L button{font:16px system-ui}
+.g{grid-template-columns:repeat(auto-fill,minmax(30ch,1fr))}
+.ag{column-width:46ch;column-gap:6px}.ag .u{break-inside:avoid}.hd{color:var(--s);border-top:1px solid var(--l);margin-top:1px}
+.b2{display:inline-block;height:3px;background:var(--v);vertical-align:middle}.b3{display:inline-block;height:3px;background:var(--l);vertical-align:middle}
+#al div{color:var(--a)}#e{color:var(--s)}#e b{color:var(--t)}
 </style></head><body>
 <form id="L" style="margin:30vh auto;max-width:260px;text-align:center"><input id="pw" type="password" inputmode="numeric" autofocus placeholder="Contraseña" style="font-size:22px;padding:10px;width:100%;border-radius:10px;border:1px solid var(--l);background:var(--c);color:var(--t)"><button style="margin-top:10px;font-size:18px;padding:10px 18px;border-radius:10px;border:0;background:var(--v);color:#fff;width:100%">Entrar</button><div id="E" style="color:var(--r);margin-top:8px"></div></form><div id="A" style="display:none"><div id="b"><span id="n">…</span> <span id="x">cargando</span></div>
-<div id="pv"></div><h2>POR TAREA</h2><div id="o" class="g"></div><div id="d"></div><h2>MÁQUINA hoy/techo</h2><div id="t" class="g"></div><div id="c"></div></div>
+<div id="e"></div><div id="al"></div><div id="ag" class="ag"></div><h2>MÁQUINA hoy/techo</h2><div id="t" class="g"></div><div id="c"></div></div>
 <script>
 let D=null,ult=0;const $=i=>document.getElementById(i),e=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 let K=null;const U=['https://api.github.com/repos/albertquerol12345/cirameva-web/contents/estado.enc?ref=estado','https://raw.githubusercontent.com/albertquerol12345/cirameva-web/estado/estado.enc'];
@@ -22,20 +26,23 @@ async function baja(){let mejor=null;for(const [i,u] of U.entries()){try{const r
 async function trae(){if(!K)return;try{const j=await baja();if(!j)throw 0;const d=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(j.iv)},K,b64(j.ct));D=JSON.parse(new TextDecoder().decode(d));ult=Date.now()}catch(_){ }pinta()}
 $('L').onsubmit=async ev=>{ev.preventDefault();$('E').textContent='Comprobando…';K=await clave($('pw').value);await trae();if(D){$('L').style.display='none';$('A').style.display='block';try{sessionStorage.p=$('pw').value}catch(_){}}else{K=null;$('E').textContent='Contraseña incorrecta o sin conexión'}};
 try{if(sessionStorage.p){$('pw').value=sessionStorage.p;$('L').requestSubmit()}}catch(_){}
+function fmt(s){const m=Math.floor(s/60);return m>=60?Math.floor(m/60)+'h'+String(m%60).padStart(2,'0'):m+':'+String(s%60).padStart(2,'0')}
 function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').textContent='SIN DATOS';$('x').textContent='el panel no recibe estado';return}
  const viejo=Math.round(Date.now()/1000-D.generado),sinred=typeof ult=='number'?Math.round((Date.now()-ult)/1000):0,LIM=300;
  const O=D.obreros,v=O.filter(o=>o.estado=='verde').length,r=O.filter(o=>o.estado=='rojo').length,a=O.length-v-r,P=(c)=>'<b class="'+c+'">●</b>';
  if(viejo>LIM||sinred>LIM){b.style.background='var(--r)';$('n').textContent='PANEL PARADO';$('x').textContent='sin datos nuevos hace '+Math.round(Math.max(viejo,sinred)/60)+' min: no te fíes de lo de abajo'}
  else{b.style.background=v==0?'var(--r)':(r>0||!D.alimentador)?'var(--a)':'var(--v)';$('n').textContent=v+' TRABAJAN';
-  $('x').textContent='· '+r+' rojos · '+a+' dudosos · obj 20 · cola '+D.cola+' · espera '+D.espera+(D.alimentador?'':' · ALIMENTADOR CAÍDO')+' · '+D.hora+' (hace '+(viejo<90?viejo+' s':Math.round(viejo/60)+' min')+')'}
+  $('x').textContent='· '+r+' rojos · '+a+' dudosos · obj 20 · cola '+D.cola+' · espera '+D.espera+' · CPU '+D.carga+'/'+D.nucleos+(D.alimentador?'':' · ALIMENTADOR CAÍDO')+' · '+D.hora+' (hace '+(viejo<90?viejo+' s':Math.round(viejo/60)+' min')+')'}
+ const E=D.etapas||{},ord=['nueva','sin_pliego','en_espera','solvencia','leyendo','duda','revision_duda','va','por_montar','montando','por_auditar','auditando','LISTA_DIRECTOR','presentada','poca_esperanza','sin_plazo','descartada'];
+ $('e').innerHTML='CADENA '+ord.filter(k=>E[k]).map(k=>e(k.replace('_',' '))+' <b>'+E[k]+'</b>').join(' · ');
+ $('al').innerHTML=(D.alertas||[]).map(x=>'<div>▲ '+e(x)+'</div>').join('');
  const MOD={Gemini:'Gemini 4 Neon',Codex:'GPT-6.2 Astra'},pr={};O.forEach(o=>{(pr[o.proveedor]=pr[o.proveedor]||[]).push(o)});
- $('pv').innerHTML=['Gemini','Codex'].concat(Object.keys(pr).filter(k=>!MOD[k])).map(k=>{const L=pr[k]||[],lv=L.filter(o=>o.estado=='verde').length,lr=L.filter(o=>o.estado=='rojo').length,la=L.length-lv-lr,mx=L.reduce((m,o)=>Math.max(m,o.minutos||0),0);
-  return '<div class="u">'+P((lr||!lv)?'rojo':la?'ambar':'verde')+' '+e(k)+' <s>'+e(MOD[k]||'NV')+'</s> <b class="verde">'+lv+' verde</b> <b class="'+(lr?'rojo':'')+'">'+lr+' rojo</b>'+(la?' <b class="ambar">'+la+' dud</b>':'')+' <s>· más antiguo '+mx+' min</s></div>'}).join('');
- const g={};O.forEach(o=>{(g[o.tipo]=g[o.tipo]||[]).push(o)});
- $('o').innerHTML=Object.keys(g).sort().map(k=>{const L=g[k],lv=L.filter(o=>o.estado=='verde').length,lr=L.filter(o=>o.estado=='rojo').length,la=L.length-lv-lr,mx=L.reduce((m,o)=>Math.max(m,o.minutos||0),0);
-  return '<div>'+P(lr?'rojo':la?'ambar':'verde')+L.length+' '+e(k.replace('cadena · ',''))+' <s>v'+lv+' r'+lr+(la?' d'+la:'')+' '+mx+'m</s></div>'}).join('')||'<div class="rojo">● ningún obrero abierto</div>';
- $('d').innerHTML=O.filter(o=>o.estado!='verde').map(o=>'<div class="u '+o.estado+'">● '+e(o.proveedor)+' '+e(o.nombre||o.tipo)+' '+o.minutos+'m quieto '+o.quieto+'s'+(o.agente?'':' sin proceso')+'</div>').join('');
- $('t').innerHTML=D.tabla.map(f=>'<div>'+e(f[0])+' <b class="'+(+f[1]>=+f[2]?'verde':+f[1]>=50?'ambar':'rojo')+'">'+f[1]+'</b><s>/'+f[2]+'</s></div>').join('');
+ const cnt={};
+ $('ag').innerHTML=['Gemini','Codex'].concat(Object.keys(pr).filter(k=>!MOD[k])).map(k=>{const L=(pr[k]||[]).slice().sort((x,y)=>y.seg-x.seg),lv=L.filter(o=>o.estado=='verde').length,lr=L.filter(o=>o.estado=='rojo').length,la=L.length-lv-lr;
+  return '<div class="hd">'+P((lr||!lv)?'rojo':la?'ambar':'verde')+' <b>'+e(k.toUpperCase())+'</b> '+e(MOD[k]||'NV')+' · <b class="verde">'+lv+' verde</b> · <b class="'+(lr?'rojo':'')+'">'+lr+' rojo</b>'+(la?' · <b class="ambar">'+la+' dud</b>':'')+'</div>'+
+  L.map(o=>{const t=o.tipo.replace('cadena · ','');cnt[k+t]=(cnt[k+t]||0)+1;const nom=o.nombre?o.nombre:t+' #'+cnt[k+t];
+   return '<div class="u">'+P(o.estado)+' <b>'+fmt(o.seg)+'</b> <s>q'+o.quieto+'s'+(o.agente?'':' SIN PROCESO')+'</s> '+e(t)+' <s>'+(o.nombre?e(o.nombre)+(o.desc?' · '+e(o.desc):''):'#'+cnt[k+t])+'</s></div>'}).join('')}).join('');
+ $('t').innerHTML=D.tabla.map(f=>{const h=+f[1],t=+f[2];return '<div>'+e(f[0])+' <b class="'+(h>=t?'verde':h>=50?'ambar':'rojo')+'">'+f[1]+'</b><s>/'+f[2]+'</s> <i class="b2" style="width:'+Math.round(h*.5)+'px"></i><i class="b3" style="width:'+Math.round(Math.max(0,t-h)*.5)+'px"></i></div>'}).join('');
  $('c').textContent=D.salud+' · '+D.caudal}
 setInterval(trae,61000);setInterval(pinta,1000);
 </script></body></html>
