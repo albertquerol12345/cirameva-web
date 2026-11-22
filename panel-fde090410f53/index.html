@@ -15,7 +15,7 @@ h2{font-size:7px;color:var(--s);font-weight:400;border-top:1px solid var(--l)}
 #al div{color:var(--a)}#e{color:var(--s)}#e b{color:var(--t)}
 </style></head><body>
 <form id="L" style="margin:30vh auto;max-width:260px;text-align:center"><input id="pw" type="password" inputmode="numeric" autofocus placeholder="Contraseña" style="font-size:22px;padding:10px;width:100%;border-radius:10px;border:1px solid var(--l);background:var(--c);color:var(--t)"><button style="margin-top:10px;font-size:18px;padding:10px 18px;border-radius:10px;border:0;background:var(--v);color:#fff;width:100%">Entrar</button><div id="E" style="color:var(--r);margin-top:8px"></div></form><div id="A" style="display:none"><div id="b"><span id="n">…</span> <span id="x">cargando</span></div>
-<div id="lc" style="color:var(--t)"></div><div id="e"></div><div id="al"></div><div id="ag" class="ag"></div><h2>MÁQUINA hoy/techo</h2><div id="t" class="g"></div><div id="c"></div></div>
+<div id="lc" style="color:var(--t)"></div><div id="rt"></div><div id="e"></div><div id="al"></div><div id="ag" class="ag"></div><h2>MÁQUINA hoy/techo</h2><div id="t" class="g"></div><div id="c"></div></div>
 <script>
 let D=null,ult=0;const $=i=>document.getElementById(i),e=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 let K=null;const U=['https://api.github.com/repos/albertquerol12345/cirameva-web/contents/estado.enc?ref=estado','https://raw.githubusercontent.com/albertquerol12345/cirameva-web/estado/estado.enc'];
@@ -34,6 +34,7 @@ function pinta(){const b=$('b');if(!D){b.style.background='var(--r)';$('n').text
  else{b.style.background=v==0?'var(--r)':(r>0||!D.alimentador)?'var(--a)':'var(--v)';$('n').textContent=v+' TRABAJAN';
   $('x').textContent='· '+r+' rojos · '+a+' dudosos · obj 20 · cola '+D.cola+' · espera '+D.espera+' · CPU '+D.carga+'/'+D.nucleos+(D.alimentador?'':' · ALIMENTADOR CAÍDO')+' · '+D.hora+' (hace '+(viejo<90?viejo+' s':Math.round(viejo/60)+' min')+')'}
  $('lc').textContent=D.lectura?'['+(D.lectura_t?'hace '+Math.round((Date.now()/1000-D.lectura_t)/60)+' min':'sin fecha')+'] '+D.lectura:'';
+ if(D.ritmo){const R=D.ritmo,A=R.ahora,B=R.hace_1h;$('rt').innerHTML='RITMO <b>'+Math.round(A.h)+'/h</b> cierres útiles <s>(hace 1 h '+Math.round(B.h)+' · ×'+R.ratio_1h+' · hace 2 h ×'+R.ratio_2h+')</s> · agentes <b>'+A.agentes+'</b> · útiles/agente·h <b>'+A.por_agente+'</b> <s>(antes '+B.por_agente+')</s> · <b class="'+(R.veredicto=='acelera'?'verde':R.veredicto=='frena'?'rojo':'ambar')+'">'+R.veredicto.toUpperCase()+'</b> <s>'+e(R.causa)+'</s>'}
  const E=D.etapas||{},ord=['nueva','sin_pliego','en_espera','solvencia','leyendo','duda','revision_duda','va','por_montar','montando','por_auditar','auditando','LISTA_DIRECTOR','presentada','poca_esperanza','sin_plazo','descartada'];
  $('e').innerHTML='CADENA '+ord.filter(k=>E[k]).map(k=>e(k.replace('_',' '))+' <b>'+E[k]+'</b>').join(' · ');
  $('al').innerHTML=(D.alertas||[]).map(x=>'<div>▲ '+e(x)+'</div>').join('');
